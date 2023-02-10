@@ -25,5 +25,12 @@
             android:queryHint="Amusement"
             android:iconifiedByDefault="false">
         </SearchView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
