@@ -14,12 +14,38 @@
         android:theme="@style/Theme.TopJuanTech_OJT"
         tools:targetApi="31">
         <activity
+            android:name=".UserAttraction"
+            android:exported="false" />
+        <activity
+            android:name=".UserHotels"
+            android:exported="false" />
+        <activity
+            android:name=".UserHospital"
+            android:exported="false" />
+        <activity
+            android:name=".UserGovernment"
+            android:exported="false" />
+        <activity
+            android:name=".UserGas"
+            android:exported="false" />
+        <activity
+            android:name=".UserFoodspot"
+            android:exported="false" />
+        <activity
+            android:name=".UserBeverages"
+            android:exported="false" />
+        <activity
+            android:name=".UserBanks"
+            android:exported="false" />
+        <activity
+            android:name=".UserAmusement"
+            android:exported="false" />
+        <activity
             android:name=".AdminNavigation"
             android:exported="false" />
         <activity
             android:name=".City"
             android:exported="false" />
-
         <activity
             android:name=".SliderAdapter"
             android:exported="false" />
