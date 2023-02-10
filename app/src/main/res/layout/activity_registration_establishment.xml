@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationEstablishment"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/topView"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:background="@color/powder_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/wave2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins"
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="@color/bright_blue"
+                android:textSize="44sp" />
+
+            <EditText
+                android:id="@+id/editNameEst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_textfield"
+                android:ems="10"
+                android:hint="Establishment Name"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/editTypeEst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editNameEst"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Type of Establishment"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@id/editNameEst"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/editContactNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTypeEst"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="-9.5dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Contact Number"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/txt_region"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editContactNumber"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="-9.5dp"
+                android:layout_marginRight="30dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="7dp"
+                android:text="Region*"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_region"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp" />
+
+            <TextView
+                android:id="@+id/txt_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/region"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="7dp"
+                android:text="Province/City*"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/city_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_district"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp" />
+
+            <EditText
+                android:id="@+id/editBarangay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/city_district"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Barangay"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="467dp" />
+
+            <EditText
+                android:id="@+id/editLocationLong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editBarangay"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Longitude"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="467dp" />
+
+
+            <EditText
+                android:id="@+id/editLocationLat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editLocationLong"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Latitude"
+                android:maxWidth="300dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="467dp" />
+
+            <Button
+                android:id="@+id/btnRegisterEst"
+                android:layout_width="296dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/editLocationLat"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="100dp"
+                android:background="@drawable/cust_but"
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:maxWidth="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="467dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
