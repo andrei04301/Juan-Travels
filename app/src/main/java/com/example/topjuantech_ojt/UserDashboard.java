@@ -39,6 +39,8 @@ public class UserDashboard extends NavigationDrawer {
 
         // Adding the Adapter to the ViewPager
         mViewPager.setAdapter(mViewPagerAdapter);
+
     }
+
 }
 
