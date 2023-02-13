@@ -6,11 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     //vars declaration
     private Button btn_login, btn_signupUser, btn_signupManager;
+
+//    //Variables
+//    Animation topAnim, bottomAnim, scaleUp, scaleDown;
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_signupUser = (Button) findViewById(R.id.btn_signupUser);
         btn_signupManager = (Button) findViewById(R.id.btn_signupManager);
+
+        //Animations
 
 
         //button onTouch or redirection

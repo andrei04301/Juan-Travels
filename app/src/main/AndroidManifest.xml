@@ -14,6 +14,15 @@
         android:theme="@style/Theme.TopJuanTech_OJT"
         tools:targetApi="31">
         <activity
+            android:name=".EstInfoFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Reservation"
+            android:exported="false" />
+        <activity
+            android:name=".Maps"
+            android:exported="false" />
+        <activity
             android:name=".UserAttraction"
             android:exported="false" />
         <activity
