@@ -20,7 +20,7 @@
             android:name=".EstablishmentFragments"
             android:exported="false" />
         <activity
-            android:name=".Reservation"
+            android:name=".UserHotelReservation"
             android:exported="false" />
         <activity
             android:name=".Maps"

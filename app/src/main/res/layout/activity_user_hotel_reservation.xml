@@ -52,9 +52,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/poppins"
-                android:text="Login"
+                android:text="Reservation"
                 android:textColor="@color/bright_blue"
                 android:textSize="45sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,15 +64,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextEmailAdd"
+                android:id="@+id/editTextContactPerson"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="180dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/custom_textfield"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Email/Phone"
+                android:hint="Contact Person"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
                 android:paddingTop="13dp"
@@ -82,15 +84,16 @@
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editTextContactNumber"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextContactPerson"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/custom_textfield"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Contact Number"
                 android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 android:paddingTop="13dp"
@@ -100,37 +103,59 @@
                 android:textColorHint="@color/black"
                 tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/forgotPassword"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="380dp"
-                android:text="Forgot Password"
+                android:layout_below="@+id/editTextContactNumber"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Date"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textColorHint="@color/black"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/editTextRoomSize"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextDate"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_textfield"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Room and Guests"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:paddingTop="13dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                tools:ignore="MissingConstraints" />
+
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="296dp"
-                android:layout_height="45dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextRoomSize"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="330dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/cust_but"
-                android:text="Login"
+                android:text="Reserve Room"
                 android:textColor="@color/white"
                 tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/createNewAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="420dp"
-                android:text="Create new Account?"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                tools:ignore="MissingConstraints" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
