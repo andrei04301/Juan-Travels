@@ -14,7 +14,7 @@
         android:theme="@style/Theme.TopJuanTech_OJT"
         tools:targetApi="31">
         <activity
-            android:name=".EstInfoFragment"
+            android:name=".EstablishmentFragments"
             android:exported="false" />
         <activity
             android:name=".Reservation"
@@ -57,7 +57,9 @@
             android:exported="false" />
         <activity
             android:name=".SliderAdapter"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable"
+            />
         <activity
             android:name=".UserDashboard"
             android:exported="false" />
