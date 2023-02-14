@@ -37,7 +37,12 @@ public class AdminNavigation extends AppCompatActivity {
                     Intent intent = new Intent(AdminNavigation.this, RegistrationEstablishment.class);
                     startActivity(intent);
                     return true;
-                } else {
+
+                }else if (id == R.id.estMenu) {
+                    Intent intent = new Intent(AdminNavigation.this, AdminMenu.class);
+                    startActivity(intent);
+                    return true;
+                }else {
                     Intent intent = new Intent(AdminNavigation.this, RegistrationEstablishment.class);
                     startActivity(intent);
                     return true;

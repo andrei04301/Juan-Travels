@@ -8,10 +8,10 @@
             android:id="@+id/estReg"
             />
         <item
-            android:title="Sample 2"
-            android:id="@+id/btnSignup"/>
+            android:title="Establishment Menu"
+            android:id="@+id/estMenu"/>
         <item
-            android:title="Sample 3"
+            android:title="Admin Settings"
             android:id="@+id/btnReset"/>
     </group>
 
