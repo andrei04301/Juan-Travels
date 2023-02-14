@@ -23,7 +23,6 @@ public class SignInVerification extends AppCompatActivity {
                 Intent intent = new Intent(SignInVerification.this, RegistrationUser.class);
                 startActivity(intent);
             }
-
         });
     }
 }

@@ -54,7 +54,8 @@
             android:exported="false" />
         <activity
             android:name=".City"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".SliderAdapter"
             android:exported="false"

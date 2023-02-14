@@ -208,31 +208,39 @@ public class RegistrationEstablishment extends AppCompatActivity {
                     Toast.makeText(RegistrationEstablishment.this, "Please input the Latitude of the Establishment", Toast.LENGTH_LONG).show();
                     txtLat.setError("Latitude is required!");
                 } else {
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                    if (currentUser != null) {
+                        String uid = currentUser.getUid();
+                        // Do something with the user ID
+                        estName.setError(null);
+                        estType.setError(null);
+                        estContact.setError(null);
+                        txtRegion.setError(null);
+                        txtCity.setError(null);
+                        txtBarangay.setError(null);
+                        txtLong.setError(null);
+                        txtLat.setError(null);
+                        Toast.makeText(RegistrationEstablishment.this, "Selected Region: " + chosenRegion + "\nSelected Province/City: " + chosenCity, Toast.LENGTH_LONG).show();
+                        progressDialog.setMessage("Please wait...");
+                        progressDialog.setTitle("Storing Data");
+                        progressDialog.setCanceledOnTouchOutside(false);
+                        progressDialog.show();
+                        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                        HashMap<String, String> userMap = new HashMap<>();
+                        userMap.put("Establishment Type", type);
+                        userMap.put("Establishment Name", establishment);
+                        userMap.put("Contact", contact);
+                        userMap.put("Region", chosenRegion);
+                        userMap.put("City", chosenCity);
+                        userMap.put("Barangay", barangay);
+                        userMap.put("Longitude", longi);
+                        userMap.put("Latitude", lat);
+                        userMap.put("Admin ID", currentUser.getUid());
+                        storeDataInFirestore(type, userMap);
+//                        userMap.put("Establishment ID", documentReference.getId());
+                    }
 //                    DatabaseReference root = db.getReference().child("Establishments");
-                    estName.setError(null);
-                    estType.setError(null);
-                    estContact.setError(null);
-                    txtRegion.setError(null);
-                    txtCity.setError(null);
-                    txtBarangay.setError(null);
-                    txtLong.setError(null);
-                    txtLat.setError(null);
-                    Toast.makeText(RegistrationEstablishment.this, "Selected Region: " + chosenRegion + "\nSelected Province/City: " + chosenCity, Toast.LENGTH_LONG).show();
-                    progressDialog.setMessage("Please wait...");
-                    progressDialog.setTitle("Storing Data");
-                    progressDialog.setCanceledOnTouchOutside(false);
-                    progressDialog.show();
-                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-                    HashMap<String, String> userMap = new HashMap<>();
-                    userMap.put("Establishment Type", type);
-                    userMap.put("Establishment Name", establishment);
-                    userMap.put("Contact", contact);
-                    userMap.put("Region", chosenRegion);
-                    userMap.put("City", chosenCity);
-                    userMap.put("Barangay", barangay);
-                    userMap.put("Longitude", longi);
-                    userMap.put("Latitude", lat);
-                    storeDataInFirestore(type, userMap);
                 }
             }
 
@@ -241,27 +249,27 @@ public class RegistrationEstablishment extends AppCompatActivity {
 
                 CollectionReference reference;
                 if (type.toLowerCase().equals("amusement")) {
-                    reference = firestore.collection("Amusements");
+                    reference = firestore.collection(chosenCity + "Amusements");
                 } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Attractions");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Banks");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Beverages");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Food Spots");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Gas Stations");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Government");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Hospitals");
-                } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection("Hotels");
+                    reference = firestore.collection(chosenCity + "Attractions");
+                } else if (type.toLowerCase().equals("bank")) {
+                    reference = firestore.collection(chosenCity + "Banks");
+                } else if (type.toLowerCase().equals("beverage")) {
+                    reference = firestore.collection(chosenCity + "Beverages");
+                } else if (type.toLowerCase().equals("food")) {
+                    reference = firestore.collection(chosenCity + "Food Spots");
+                } else if (type.toLowerCase().equals("gas")) {
+                    reference = firestore.collection(chosenCity + "Gas Stations");
+                } else if (type.toLowerCase().equals("government")) {
+                    reference = firestore.collection(chosenCity + "Government");
+                } else if (type.toLowerCase().equals("hospital")) {
+                    reference = firestore.collection(chosenCity + "Hospitals");
+                } else if (type.toLowerCase().equals("hotel")) {
+                    reference = firestore.collection(chosenCity + "Hotels");
                 } else {
                     progressDialog.dismiss();
                     Toast.makeText(RegistrationEstablishment.this, "Choose from: 1. Amusement 2. Banks " +
-                            "3. Beverages 4. Food 5. Gas Station 6. Hospital 7. Hotels 8. Attraction 9. Government", Toast.LENGTH_SHORT).show();
+                            "3. Beverages 4. Food 5. Gas 6. Hospital 7. Hotels 8. Attraction 9. Government", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Invalid establishment type: " + type);
                     return;
                 }
