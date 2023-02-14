@@ -223,7 +223,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         txtLat.setError(null);
                         Toast.makeText(RegistrationEstablishment.this, "Selected Region: " + chosenRegion + "\nSelected Province/City: " + chosenCity, Toast.LENGTH_LONG).show();
                         progressDialog.setMessage("Please wait...");
-                        progressDialog.setTitle("Storing Data");
+                        progressDialog.setTitle("Saving Data");
                         progressDialog.setCanceledOnTouchOutside(false);
                         progressDialog.show();
                         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
