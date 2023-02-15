@@ -5,14 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class UserHotelReservation extends AppCompatActivity {
     EditText editTextDate;
     DatePickerDialog.OnDateSetListener setListener;
+//    TextInputLayout textInputLayoutBedAndGuest;
+//    AutoCompleteTextView autoCompleteTextViewBed;
+//
+//    ArrayList<String> arrayList_bed;
+//    ArrayList<String> arrayAdapter_bed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +30,18 @@ public class UserHotelReservation extends AppCompatActivity {
         setContentView(R.layout.activity_user_hotel_reservation);
 
         editTextDate = findViewById(R.id.editTextDate);
+//        textInputLayoutBedAndGuest=(TextInputLayout)findViewById(R.id.textInputLayoutBedAndGuest);
+//        autoCompleteTextViewBed=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextViewBed);
+//
+//        arrayList_bed = new ArrayList<>();
+//        arrayList_bed.add("1 and 2");
+//        arrayList_bed.add("2 and 3");
+//        arrayList_bed.add("4 and 5");
+//
+//        arrayAdapter_bed = new ArrayAdapter<>(getApplicationContext(),R.layout.dropdown_item, arrayList_bed);
+//        autoCompleteTextViewBed.setAdapter(arrayAdapter_bed);
+
+//        autoCompleteTextViewBed.setThreshold(2);
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
