@@ -1,24 +1,36 @@
 package com.example.topjuantech_ojt;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AdminPopUp extends AppCompatActivity {
+import java.util.HashMap;
+
+public class AdminPopUp extends RegistrationEstablishment {
     private EditText prodName, prodPrice;
+    private String name, price, image;
     private ImageButton prodImage;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -61,5 +73,50 @@ public class AdminPopUp extends AppCompatActivity {
     }
 
     private void PerformAuth() {
+        name = prodName.getText().toString();
+        price = prodPrice.getText().toString();
+
+        if(name.isEmpty()){
+            prodName.setError("Please input the Product's Name!");
+        }else if(price.isEmpty()){
+            prodPrice.setError("Please input the Product's Price!");
+        }else{
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+            String uid = currentUser.getUid();
+            if (uid != null) {
+                HashMap<String, String> userMap = new HashMap<>();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                CollectionReference establishment = firestore.collection(chosenCity + "Food Spots");
+                if(firestore.collection(chosenCity + "Food Spots") != null){
+                    progressDialog.setMessage("Please wait...");
+                    progressDialog.setTitle("Adding Menu...");
+                    progressDialog.setCanceledOnTouchOutside(false);
+                    progressDialog.show();
+                    userMap.put("Product Name", name);
+                    userMap.put("Product Price", price);
+                    establishment.add(userMap)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(AdminPopUp.this, "Product data saved successfully", Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, "Product data saved with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(AdminPopUp.this, "Error saving Product data", Toast.LENGTH_SHORT).show();
+                                    Log.e(TAG, "Error saving Product data: " + e.getMessage());
+                                }
+                            });
+                }
+            }
+
+        }
     }
+
 }

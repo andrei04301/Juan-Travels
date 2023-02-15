@@ -34,10 +34,10 @@ import java.util.HashMap;
 public class RegistrationEstablishment extends AppCompatActivity {
     private EditText estName, estType, estContact;
     private Button btnRegisterEst;
-    private String chosenCity, chosenRegion, barangay, longi, lat;
+    public String chosenCity, chosenRegion, barangay, longi, lat;
     private TextView txtRegion, txtCity, txtBarangay, txtLong, txtLat;
-    private Spinner spinCity, spinRegion;
-    private ArrayAdapter<CharSequence> adapterCity, adapterRegion;
+    public Spinner spinCity, spinRegion;
+    public ArrayAdapter<CharSequence> adapterCity, adapterRegion;
     private String establishment, type, contact;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -236,7 +236,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         userMap.put("Barangay", barangay);
                         userMap.put("Longitude", longi);
                         userMap.put("Latitude", lat);
-                        userMap.put("Admin ID", currentUser.getUid());
+                        userMap.put("Admin ID", uid);
                         storeDataInFirestore(type, userMap);
 //                        userMap.put("Establishment ID", documentReference.getId());
                     }
@@ -244,7 +244,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                 }
             }
 
-            private void storeDataInFirestore(String type, HashMap<String, String> userMap) {
+            public void storeDataInFirestore(String type, HashMap<String, String> userMap) {
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
                 CollectionReference reference;
