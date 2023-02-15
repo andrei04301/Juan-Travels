@@ -81,6 +81,7 @@
                 android:paddingBottom="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
+                android:drawableStart="@drawable/ic_user"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -91,10 +92,11 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_textfield"
+                android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Contact Number"
-                android:inputType="textPassword"
+                android:inputType="phone"
                 android:paddingLeft="20dp"
                 android:paddingTop="13dp"
                 android:paddingRight="20dp"
@@ -111,6 +113,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_textfield"
+                android:drawableStart="@drawable/ic_calendar"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Date"
@@ -141,6 +144,7 @@
                 android:paddingBottom="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
+                android:drawableStart="@drawable/ic_bed"
                 tools:ignore="MissingConstraints" />
 
 
