@@ -126,39 +126,65 @@
                 android:textColorHint="@color/black"
                 tools:ignore="MissingConstraints" />
 
-            <EditText
-                android:id="@+id/editTextRoomSize"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editTextDate"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_textfield"
-                android:drawablePadding="10dp"
-                android:ems="10"
-                android:hint="Room and Guests"
-                android:inputType="textPassword"
                 android:paddingLeft="20dp"
-                android:paddingTop="13dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="13dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:drawableStart="@drawable/ic_bed"
-                tools:ignore="MissingConstraints" />
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView2"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    android:text="Room and Guest" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editTextRoomSize"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/cust_but"
-                android:text="Reserve Room"
-                android:textColor="@color/white"
-                tools:ignore="MissingConstraints" />
+            <!--            <AutoCompleteTextView-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--                android:id="@+id/editTextRoomSize"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/editTextDate"-->
+<!--                android:layout_marginLeft="35dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/custom_textfield"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Room and Guests"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingTop="13dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:paddingBottom="13dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                android:drawableStart="@drawable/ic_bed"-->
+<!--                tools:ignore="MissingConstraints" />-->
+
+
+
+<!--            <Button-->
+<!--                android:id="@+id/btnLogin"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/editTextRoomSize"-->
+<!--                android:layout_marginLeft="35dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/cust_but"-->
+<!--                android:text="Reserve Room"-->
+<!--                android:textColor="@color/white"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
