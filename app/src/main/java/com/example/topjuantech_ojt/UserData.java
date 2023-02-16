@@ -1,6 +1,6 @@
 package com.example.topjuantech_ojt;
 
-public class UserData {
+public class UserData extends RegistrationUser{
     private String key, firstName,
             lastName, phone,
             email, password,

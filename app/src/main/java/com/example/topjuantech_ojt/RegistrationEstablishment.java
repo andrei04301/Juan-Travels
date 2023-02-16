@@ -171,6 +171,9 @@ public class RegistrationEstablishment extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
+
         Button submitButton;
         submitButton = findViewById(R.id.btnRegisterEst);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -292,6 +295,13 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         });
             }
         });
+
+    }
+    public String getChosenRegion() {
+        return chosenRegion;
+    }
+    public String getChosenCity() {
+        return chosenCity;
     }
 }
 

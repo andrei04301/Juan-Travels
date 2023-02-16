@@ -73,6 +73,9 @@ public class AdminPopUp extends RegistrationEstablishment {
     }
 
     private void PerformAuth() {
+        RegistrationEstablishment registrationEstablishment = new RegistrationEstablishment();
+        String chosenRegion = registrationEstablishment.getChosenRegion();
+        String chosenCity = registrationEstablishment.getChosenCity();
         name = prodName.getText().toString();
         price = prodPrice.getText().toString();
 
