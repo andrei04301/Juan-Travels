@@ -22,7 +22,6 @@
         tools:ignore="MissingConstraints"
         android:queryHint="Search for products and more..."
         android:iconifiedByDefault="false">
-
     </SearchView>
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -246,6 +245,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/user_btm_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:menu="@menu/bottom_navigation" />
+
     </RelativeLayout>
+
+
 
 </LinearLayout>
