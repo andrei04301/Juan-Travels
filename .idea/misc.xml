@@ -47,6 +47,7 @@
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_dashboard.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_desired_city.xml" value="0.536" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_foodspot.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_gas.xml" value="0.30434782608695654" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_government.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_hospital.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuan-Tech-master/app/src/main/res/layout/activity_user_hotels.xml" value="0.22826086956521738" />
@@ -81,14 +82,11 @@
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuanTech_OJT/app/src/main/res/layout/activity_registration_user.xml" value="0.2" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/TopJuanTech_OJT/app/src/main/res/layout/activity_sign_in_verification.xml" value="0.1" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/ic_bed.xml" value="0.156" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/ic_booking.xml" value="0.157" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/ic_calendar.xml" value="0.156" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/ic_home.xml" value="0.157" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/ic_user.xml" value="0.156" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_menu.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_navigation.xml" value="0.209375" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_pop_up.xml" value="0.33" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_city.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_est_info_fragment.xml" value="0.1" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_establishment_fragments.xml" value="0.12047101449275362" />
@@ -107,16 +105,11 @@
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_amusement.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_attraction.xml" value="0.12047101449275362" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_banks.xml" value="0.209375" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_dashboard.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_government.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_hotel_reservation.xml" value="0.5" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_reservation.xml" value="0.2" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/dropdown_item.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/spin.xml" value="0.209375" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/menu/admin_menu.xml" value="0.209375" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/menu/bottom_navigation.xml" value="0.209375" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/menu/menu.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/drawable-v24/cust_but.xml" value="0.132" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/drawable/wave.xml" value="0.146" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/layout/activity_forgot_password.xml" value="0.209375" />
