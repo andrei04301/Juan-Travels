@@ -116,7 +116,7 @@
             android:layout_marginBottom="16dp"
             android:visibility="visible"
             tools:ignore="MissingConstraints"
-            android:queryHint="Amusement"
+            android:queryHint="Beverage"
             android:iconifiedByDefault="false">
         </SearchView>
 

@@ -59,12 +59,12 @@ public class RegistrationEstablishment extends AppCompatActivity {
         estName = (EditText) findViewById(R.id.editNameEst);
         estType = (EditText) findViewById(R.id.editTypeEst);
         estContact = (EditText) findViewById(R.id.editContactNumber);
-        txtRegion = (TextView) findViewById(R.id.txt_region);
-        txtCity = (TextView) findViewById(R.id.txt_district);
+
         txtBarangay = (EditText) findViewById(R.id.editBarangay);
         txtLong = (EditText) findViewById(R.id.editLocationLong);
         txtLat = (EditText) findViewById(R.id.editLocationLat);
-
+        txtRegion = (TextView) findViewById(R.id.txt_region);
+        txtCity = (TextView) findViewById(R.id.txt_district);
         spinRegion = findViewById(R.id.region);
         adapterRegion = ArrayAdapter.createFromResource(this, R.array.arr_region, R.layout.spin);
         adapterRegion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
