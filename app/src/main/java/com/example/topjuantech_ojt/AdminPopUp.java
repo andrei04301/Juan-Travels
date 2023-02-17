@@ -28,7 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class AdminPopUp extends RegistrationEstablishment {
+public class AdminPopUp extends AppCompatActivity {
     private EditText prodName, prodPrice;
     private String name, price, image;
     private ImageButton prodImage;

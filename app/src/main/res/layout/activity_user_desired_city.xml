@@ -58,25 +58,25 @@
                 android:textColor="@color/bright_blue"
                 android:textSize="32sp" />
 
-<!--           <TextView-->
-<!--                android:id="@+id/txt_region"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="parent"-->
-<!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_marginTop="100dp"-->
-<!--                android:layout_marginRight="30dp"-->
-<!--                android:focusable="true"-->
-<!--                android:focusableInTouchMode="true"-->
-<!--                android:padding="7dp"-->
-<!--                android:text="Region*"-->
-<!--                android:textColor="@color/black" />-->
+           <TextView
+                android:id="@+id/txt_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="7dp"
+                android:text="Region*"
+                android:textColor="@color/black" />
 
             <Spinner
                 android:id="@+id/region"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView"
+                android:layout_below="@+id/txt_region"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp" />
 

@@ -65,7 +65,7 @@ public class UserDashboard extends NavigationDrawer implements View.OnClickListe
         switch (v.getId()) {
             case R.id.icon1:
                 // Open the corresponding activity when icon1 is clicked
-                Intent intent1 = new Intent(UserDashboard.this, UserDesiredCity.class);
+                Intent intent1 = new Intent(UserDashboard.this, UserAmusement.class);
                 startActivity(intent1);
                 break;
             case R.id.icon2:
