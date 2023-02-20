@@ -8,12 +8,14 @@
     android:orientation="vertical"
     android:textAlignment="center"
     tools:context=".MainActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         tools:layout_editor_absoluteX="26dp"
         tools:layout_editor_absoluteY="-26dp">
+
         <ImageView
             android:id="@+id/applogo"
             android:layout_width="wrap_content"
@@ -21,9 +23,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="-5dp"
+            android:adjustViewBounds="true"
             android:gravity="center"
-            android:src="@drawable/logo"
-            android:adjustViewBounds="true" />
+            android:src="@drawable/logo" />
 
         <Button
             android:id="@+id/btn_signupUser"
@@ -50,18 +52,19 @@
             android:fontFamily="@font/poppins"
             android:text="Register as Manager"
             android:textColor="@color/white" />
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="290dp"
             android:layout_height="55dp"
+            android:layout_below="@id/btn_signupManager"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="55dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/cust_but"
             android:fontFamily="@font/poppins"
             android:text="Login"
-            android:textColor="@color/white"
-            android:layout_below="@id/btn_signupManager"
-            android:layout_centerHorizontal="true"/>
+            android:textColor="@color/white" />
     </RelativeLayout>
 </RelativeLayout>
