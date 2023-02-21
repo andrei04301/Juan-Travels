@@ -3,31 +3,31 @@ package com.example.topjuantech_ojt;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String Name, Address, Id, Spot;
+    String EstablishmentName , City, Id, Spot;
 
     public User(){}
 
-    public User(String name, String address, String id, String spot) {
-        Name = name;
-        Address = address;
+    public User(String establishmentName, String city, String id, String spot) {
+        EstablishmentName = establishmentName;
+        City = city;
         Id = id;
         Spot = spot;
     }
 
-    public String getName() {
-        return Name;
+    public String getEstablishmentName() {
+        return EstablishmentName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setEstablishmentName(String establishmentName) {
+        EstablishmentName = establishmentName;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getCity() {
+        return City;
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public void setCity(String city) {
+        City = city;
     }
 
     public String getId() {

@@ -231,8 +231,8 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         progressDialog.show();
                         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                         HashMap<String, String> userMap = new HashMap<>();
-                        userMap.put("Establishment Type", type);
-                        userMap.put("Establishment Name", establishment);
+                        userMap.put("EstablishmentType", type);
+                        userMap.put("EstablishmentName", establishment);
                         userMap.put("Contact", contact);
                         userMap.put("Region", chosenRegion);
                         userMap.put("City", chosenCity);
