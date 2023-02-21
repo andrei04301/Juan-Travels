@@ -212,7 +212,7 @@ public class UserAttraction extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document = task.getResult();
                                     if (document.exists()) {
-                                        String city = document.getString("Region" + "City");
+                                        String city = document.getString("City");
                                         String establishmentName = document.getString("Establishment Name");
                                         user = new User(establishmentName, city, document.getId(), "Pangasinan - Dagupan CityFood Spots");
                                         if (!ids.contains(document.getId())) {
