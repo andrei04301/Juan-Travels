@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/home"
+    <item android:id="@+id/admin_home"
         android:title="Home"
         android:icon="@drawable/ic_home" />
 
-    <item android:id="@+id/booking"
-        android:title="Bookings"
-        android:icon="@drawable/ic_booking"/>
+    <item android:id="@+id/admin_products"
+        android:title="Products"
+        android:icon="@drawable/ic_menu"/>
+
+    <item android:id="@+id/admin_booking"
+        android:title="Orders"
+        android:icon="@drawable/ic_booking" />
+
 
     <item android:id="@+id/profile"
         android:title="Profile"
