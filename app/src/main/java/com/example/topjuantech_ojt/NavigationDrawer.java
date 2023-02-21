@@ -33,6 +33,7 @@ public class NavigationDrawer extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
