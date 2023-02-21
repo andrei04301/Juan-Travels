@@ -264,7 +264,6 @@
         <item>Zamboanga del Sur - Zamboanga City</item>
     </string-array>
 
-
     <!--Array of Province/City in Region 10-->
     <string-array name="arr_region10_city">
         <item>Select Your Province/City</item>
