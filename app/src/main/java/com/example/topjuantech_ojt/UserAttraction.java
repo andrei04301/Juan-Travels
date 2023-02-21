@@ -62,7 +62,7 @@ public class UserAttraction extends AppCompatActivity {
         user = new User();
 
         recyclerView.setAdapter(myAdapter);
-        EventChangeListener(userArrayList);
+//        EventChangeListener(userArrayList);
         recyclerView.setItemAnimator(null);
         lLayout=findViewById(R.id.lLayout);
         cardView=findViewById(R.id.cardView);
@@ -188,48 +188,42 @@ public class UserAttraction extends AppCompatActivity {
                 }else {
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
-                }
-            }
-        });
-    }
+                    db.collection(chosenCity+"Attractions").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 
-    private void EventChangeListener(ArrayList<User> userArrayList) {
-        userArrayList.clear();
-        ids.clear();
-
-        db.collection("Pangasinan - Dagupan CityFood Spots").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        String uid = document.getId();
-                        DocumentReference uidRef = db.collection("Pangasinan - Dagupan CityFood Spots").document(uid);
-                        System.out.println(uid);
-                        uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        String city = document.getString("City");
-                                        String establishmentName = document.getString("Establishment Name");
-                                        user = new User(establishmentName, city, document.getId(), "Pangasinan - Dagupan CityFood Spots");
-                                        if (!ids.contains(document.getId())) {
-                                            ids.add(document.getId());
-                                            userArrayList.add(user);
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String uid = document.getId();
+                                    DocumentReference uidRef = db.collection(chosenCity+"Attractions").document(uid);
+                                    System.out.println(uid);
+                                    uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    String city = document.getString("City");
+                                                    String establishmentName = document.getString("Establishment Name");
+                                                    user = new User(establishmentName, city, document.getId(), chosenCity+"Attractions");
+                                                    if (!ids.contains(document.getId())) {
+                                                        ids.add(document.getId());
+                                                        userArrayList.add(user);
+                                                    }
+                                                    myAdapter.notifyDataSetChanged();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
-                                        myAdapter.notifyDataSetChanged();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
+                                    });
                                 }
-                            }
-                        });
-                    }
 
+                            }
+                        }
+                    });
                 }
             }
         });

@@ -23,13 +23,18 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UserAmusement extends AppCompatActivity {
+    private String chosenCity, chosenRegion;
+    private TextView txtRegion, txtCity;
+    public Spinner spinCity, spinRegion;
+    public ArrayAdapter<CharSequence> adapterCity, adapterRegion;
+    androidx.cardview.widget.CardView cardView;
+    LinearLayout lLayout;
+    Button btnProceed;
     RecyclerView recyclerView;
     MyAdapter myAdapter;
     ArrayList<User> userArrayList;
@@ -38,31 +43,27 @@ public class UserAmusement extends AppCompatActivity {
     User user;
 
     EditText search;
-    private String chosenCity, chosenRegion;
-    private TextView txtRegion, txtCity;
-    public Spinner spinCity, spinRegion;
-    public ArrayAdapter<CharSequence> adapterCity, adapterRegion;
-    androidx.cardview.widget.CardView cardView;
-    LinearLayout lLayout;
-    Button btnProceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_amusement);
         search = findViewById(R.id.search);
+        setContentView(R.layout.activity_user_amusement);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        db = FirebaseFirestore.getInstance();
-//        userArrayList = new ArrayList<User>();
-//        ids = new ArrayList<String>();
-//        myAdapter = new MyAdapter(getApplicationContext(), userArrayList);
-//        user = new User();
+        db = FirebaseFirestore.getInstance();
+        userArrayList = new ArrayList<User>();
+        ids = new ArrayList<String>();
+        myAdapter = new MyAdapter(getApplicationContext(), userArrayList);
+        myAdapter = new MyAdapter(UserAmusement.this, userArrayList);
+        user = new User();
 
         recyclerView.setAdapter(myAdapter);
+//        EventChangeListener(userArrayList);
+        recyclerView.setItemAnimator(null);
         lLayout=findViewById(R.id.lLayout);
         cardView=findViewById(R.id.cardView);
         btnProceed=findViewById(R.id.btnProceed);
@@ -187,49 +188,44 @@ public class UserAmusement extends AppCompatActivity {
                 }else {
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
+                    db.collection(chosenCity+"Amusements").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String uid = document.getId();
+                                    DocumentReference uidRef = db.collection(chosenCity+"Amusements").document(uid);
+                                    System.out.println(uid);
+                                    uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    String city = document.getString("City");
+                                                    String establishmentName = document.getString("Establishment Name");
+                                                    user = new User(establishmentName, city, document.getId(), chosenCity+"Amusements");
+                                                    if (!ids.contains(document.getId())) {
+                                                        ids.add(document.getId());
+                                                        userArrayList.add(user);
+                                                    }
+                                                    myAdapter.notifyDataSetChanged();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+
+                            }
+                        }
+                    });
                 }
             }
         });
     }
-//        private void EventChangeListener(ArrayList<User> userArrayList) {
-//            userArrayList.clear();
-//            ids.clear();
-//
-//            db.collection("Category Amusement Spots").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//
-//                @Override
-//                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                    if (task.isSuccessful()) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            String uid = document.getId();
-//                            DocumentReference uidRef = db.collection("Category Amusement Spots").document(uid);
-//                            System.out.println(uid);
-//                            uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                                    if (task.isSuccessful()) {
-//                                        DocumentSnapshot document = task.getResult();
-//                                        if (document.exists()) {
-//                                            String address = document.getString("Address");
-//                                            String name = document.getString("Name");
-//                                            user = new User(name, address, document.getId(), "Category Amusement Spots");
-//                                            if (!ids.contains(document.getId())) {
-//                                                ids.add(document.getId());
-//                                                userArrayList.add(user);
-//                                            }
-//                                            myAdapter.notifyDataSetChanged();
-//                                        } else {
-//                                            Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    } else {
-//                                        Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
-//                                    }
-//                                }
-//                            });
-//                        }
-//
-//                    }
-//                }
-//            });
-//        }
 }
