@@ -239,7 +239,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         userMap.put("Barangay", barangay);
                         userMap.put("Longitude", longi);
                         userMap.put("Latitude", lat);
-                        userMap.put("Admin ID", uid);
+                        userMap.put("AdminID", uid);
                         storeDataInFirestore(type, userMap);
 //                        userMap.put("Establishment ID", documentReference.getId());
                     }
@@ -252,23 +252,23 @@ public class RegistrationEstablishment extends AppCompatActivity {
 
                 CollectionReference reference;
                 if (type.toLowerCase().equals("amusement")) {
-                    reference = firestore.collection(chosenCity + "Amusements");
+                    reference = firestore.collection(chosenRegion + "Amusements");
                 } else if (type.toLowerCase().equals("attraction")) {
-                    reference = firestore.collection(chosenCity + "Attractions");
+                    reference = firestore.collection(chosenRegion + "Attractions");
                 } else if (type.toLowerCase().equals("bank")) {
-                    reference = firestore.collection(chosenCity + "Banks");
+                    reference = firestore.collection(chosenRegion + "Banks");
                 } else if (type.toLowerCase().equals("beverage")) {
-                    reference = firestore.collection(chosenCity + "Beverages");
+                    reference = firestore.collection(chosenRegion + "Beverages");
                 } else if (type.toLowerCase().equals("food")) {
-                    reference = firestore.collection(chosenCity + "Food Spots");
+                    reference = firestore.collection(chosenRegion + "Food Spots");
                 } else if (type.toLowerCase().equals("gas")) {
-                    reference = firestore.collection(chosenCity + "Gas Stations");
+                    reference = firestore.collection(chosenRegion + "Gas Stations");
                 } else if (type.toLowerCase().equals("government")) {
-                    reference = firestore.collection(chosenCity + "Government");
+                    reference = firestore.collection(chosenRegion + "Government");
                 } else if (type.toLowerCase().equals("hospital")) {
-                    reference = firestore.collection(chosenCity + "Hospitals");
+                    reference = firestore.collection(chosenRegion + "Hospitals");
                 } else if (type.toLowerCase().equals("hotel")) {
-                    reference = firestore.collection(chosenCity + "Hotels");
+                    reference = firestore.collection(chosenRegion + "Hotels");
                 } else {
                     progressDialog.dismiss();
                     Toast.makeText(RegistrationEstablishment.this, "Choose from: 1. Amusement 2. Banks " +

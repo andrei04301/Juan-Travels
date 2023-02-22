@@ -99,7 +99,7 @@ public class Login extends AppCompatActivity {
             editTextPassword.setError("Enter Proper Password(6)!");
         } else {
             progressDialog.setMessage("Please wait...");
-            progressDialog.setTitle("Registration");
+            progressDialog.setTitle("Logging in");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
