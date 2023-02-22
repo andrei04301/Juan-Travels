@@ -1,16 +1,31 @@
 package com.example.topjuantech_ojt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserHotels extends AppCompatActivity {
     private String chosenCity, chosenRegion;
@@ -20,11 +35,34 @@ public class UserHotels extends AppCompatActivity {
     androidx.cardview.widget.CardView cardView;
     LinearLayout lLayout;
     Button btnProceed;
+    RecyclerView recyclerView;
+    MyAdapter myAdapter;
+    ArrayList<User> userArrayList;
+    List<String> ids;
+    FirebaseFirestore db;
+    User user;
+
+    EditText search;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_hotels);
+        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        db = FirebaseFirestore.getInstance();
+        userArrayList = new ArrayList<User>();
+        ids = new ArrayList<String>();
+        myAdapter = new MyAdapter(getApplicationContext(), userArrayList);
+        myAdapter = new MyAdapter(UserHotels.this, userArrayList);
+        user = new User();
+
+        recyclerView.setAdapter(myAdapter);
+//        EventChangeListener(userArrayList);
+        recyclerView.setItemAnimator(null);
         lLayout=findViewById(R.id.lLayout);
         cardView=findViewById(R.id.cardView);
         btnProceed=findViewById(R.id.btnProceed);
@@ -149,6 +187,42 @@ public class UserHotels extends AppCompatActivity {
                 }else {
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
+                    db.collection(chosenRegion+"Hotels").whereEqualTo("City", chosenCity).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String uid = document.getId();
+                                    DocumentReference uidRef = db.collection(chosenRegion+"Hotels").document(uid);
+                                    System.out.println(uid);
+                                    uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    String city = document.getString("City");
+                                                    String establishmentName = document.getString("EstablishmentName");
+                                                    user = new User(establishmentName, city, document.getId(), chosenRegion+"Hotels");
+                                                    if (!ids.contains(document.getId())) {
+                                                        ids.add(document.getId());
+                                                        userArrayList.add(user);
+                                                    }
+                                                    myAdapter.notifyDataSetChanged();
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+
+                            }
+                        }
+                    });
                 }
             }
         });

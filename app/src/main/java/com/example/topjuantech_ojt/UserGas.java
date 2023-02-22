@@ -188,14 +188,14 @@ public class UserGas extends AppCompatActivity {
                 }else {
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
-                    db.collection(chosenCity+"Gas Stations").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    db.collection(chosenRegion+"Gas Stations").whereEqualTo("City", chosenCity).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     String uid = document.getId();
-                                    DocumentReference uidRef = db.collection(chosenCity+"Gas Stations").document(uid);
+                                    DocumentReference uidRef = db.collection(chosenRegion+"Gas Stations").document(uid);
                                     System.out.println(uid);
                                     uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                         @Override
@@ -204,8 +204,8 @@ public class UserGas extends AppCompatActivity {
                                                 DocumentSnapshot document = task.getResult();
                                                 if (document.exists()) {
                                                     String city = document.getString("City");
-                                                    String establishmentName = document.getString("Establishment Name");
-                                                    user = new User(establishmentName, city, document.getId(), chosenCity+"Gas Stations");
+                                                    String establishmentName = document.getString("EstablishmentName");
+                                                    user = new User(establishmentName, city, document.getId(), chosenRegion+"Gas Stations");
                                                     if (!ids.contains(document.getId())) {
                                                         ids.add(document.getId());
                                                         userArrayList.add(user);

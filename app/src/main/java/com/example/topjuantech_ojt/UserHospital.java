@@ -188,14 +188,14 @@ public class UserHospital extends AppCompatActivity {
                 }else {
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
-                    db.collection(chosenCity+"Hospitals").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    db.collection(chosenRegion+"Hospitals").whereEqualTo("City", chosenCity).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     String uid = document.getId();
-                                    DocumentReference uidRef = db.collection(chosenCity+"Hospitals").document(uid);
+                                    DocumentReference uidRef = db.collection(chosenRegion+"Hospitals").document(uid);
                                     System.out.println(uid);
                                     uidRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                         @Override
@@ -204,8 +204,8 @@ public class UserHospital extends AppCompatActivity {
                                                 DocumentSnapshot document = task.getResult();
                                                 if (document.exists()) {
                                                     String city = document.getString("City");
-                                                    String establishmentName = document.getString("Establishment Name");
-                                                    user = new User(establishmentName, city, document.getId(), chosenCity+"Hospitals");
+                                                    String establishmentName = document.getString("EstablishmentName");
+                                                    user = new User(establishmentName, city, document.getId(), chosenRegion+"Hospitals");
                                                     if (!ids.contains(document.getId())) {
                                                         ids.add(document.getId());
                                                         userArrayList.add(user);

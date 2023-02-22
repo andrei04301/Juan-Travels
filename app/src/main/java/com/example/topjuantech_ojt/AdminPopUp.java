@@ -29,8 +29,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 public class AdminPopUp extends AppCompatActivity {
-    private EditText prodName, prodPrice;
-    private String name, price, image;
+    private EditText prodName, prodPrice, prodDesc;
+    private String name, price, image, desc;
     private ImageButton prodImage;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -61,6 +61,7 @@ public class AdminPopUp extends AppCompatActivity {
 
         prodName = (EditText) findViewById(R.id.prodName);
         prodPrice = (EditText) findViewById(R.id.prodPrice);
+        prodDesc = (EditText) findViewById(R.id.prodDesc);
         prodImage = findViewById(R.id.prodImage);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,7 @@ public class AdminPopUp extends AppCompatActivity {
         String chosenCity = registrationEstablishment.getChosenCity();
         name = prodName.getText().toString();
         price = prodPrice.getText().toString();
+        desc = prodDesc.getText().toString();
 
         if(name.isEmpty()){
             prodName.setError("Please input the Product's Name!");
@@ -99,6 +101,7 @@ public class AdminPopUp extends AppCompatActivity {
                     progressDialog.show();
                     userMap.put("Product Name", name);
                     userMap.put("Product Price", price);
+                    userMap.put("Product Description", desc);
                     establishment.add(userMap)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
