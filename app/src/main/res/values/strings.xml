@@ -35,10 +35,6 @@
     <!--Array of Province/City in Region 1-->
     <string-array name="arr_region1_city">
         <item>Select Your Province/City</item>
-        <item>Ilocos Norte</item>
-        <item>Ilocos Sur</item>
-        <item>La Union</item>
-        <item>Pangasinan</item>
         <item>Pangasinan - Dagupan City</item>
         <item>Pangasinan - San Carlos City</item>
         <item>Pangasinan - Alaminos City</item>
@@ -53,8 +49,6 @@
     <string-array name="arr_region2_city">
         <item>Select Your Province/City</item>
         <item>Batanes</item>
-        <item>Cagayan</item>
-        <item>Isabela</item>
         <item>Quirino</item>
         <item>Nueva Vizcaya</item>
         <item>Isabela - Cauayan City</item>
@@ -67,12 +61,6 @@
     <string-array name="arr_region3_city">
         <item>Select Your Province/City</item>
         <item>Aurora</item>
-        <item>Bataan</item>
-        <item>Bulacan</item>
-        <item>Nueva Ecija</item>
-        <item>Pampanga</item>
-        <item>Tarlac</item>
-        <item>Zambales</item>
         <item>Bataan - Balanga City</item>
         <item>Bulacan - Malolos City</item>
         <item>Bulacan - Meycauayan City</item>
@@ -92,11 +80,6 @@
     <!--Array of Province/City in Region 4A-->
     <string-array name="arr_region4A_city">
         <item>Select Your Province/City</item>
-        <item>Cavite</item>
-        <item>Laguna</item>
-        <item>Batangas</item>
-        <item>Rizal</item>
-        <item>Quezon</item>
         <item>Batangas - Batangas City</item>
         <item>Batangas - Lipa City</item>
         <item>Batangas - Tanauan City</item>

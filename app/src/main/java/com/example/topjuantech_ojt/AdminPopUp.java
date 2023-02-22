@@ -93,8 +93,8 @@ public class AdminPopUp extends AppCompatActivity {
             if (uid != null) {
                 HashMap<String, String> userMap = new HashMap<>();
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                CollectionReference establishment = firestore.collection(chosenCity + "Food Spots");
-                if(firestore.collection(chosenCity + "Food Spots") != null){
+                CollectionReference establishment = firestore.collection("Region I - Ilocos Region" + "Food Spots");
+                if(firestore.collection("Region I - Ilocos Region" + "Food Spots").whereEqualTo("AdminID", uid) != null){
                     progressDialog.setMessage("Please wait...");
                     progressDialog.setTitle("Adding Menu...");
                     progressDialog.setCanceledOnTouchOutside(false);
@@ -102,6 +102,8 @@ public class AdminPopUp extends AppCompatActivity {
                     userMap.put("Product Name", name);
                     userMap.put("Product Price", price);
                     userMap.put("Product Description", desc);
+                    userMap.put("AdminID", uid);
+                    userMap.put("AdminID", uid);
                     establishment.add(userMap)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override

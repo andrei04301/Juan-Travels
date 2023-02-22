@@ -62,7 +62,6 @@
                         />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -235,27 +234,4 @@
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- viewpager to show images -->
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerMain"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/user_btm_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white"
-            app:menu="@menu/user_bottom_navigation" />
-
-    </RelativeLayout>
-
-
-
 </LinearLayout>

@@ -37,9 +37,9 @@ public class UserDashboard extends NavigationDrawer implements View.OnClickListe
         mViewPager = (ViewPager)findViewById(R.id.viewPagerMain);
 
         // Initializing the ViewPagerAdapter
-        mViewPagerAdapter = new SliderAdapter(UserDashboard.this, images);
-        // Adding the Adapter to the ViewPager
-        mViewPager.setAdapter(mViewPagerAdapter);
+//        mViewPagerAdapter = new SliderAdapter(UserDashboard.this, images);
+//        // Adding the Adapter to the ViewPager
+//        mViewPager.setAdapter(mViewPagerAdapter);
 
         icon1 = (ImageView) findViewById(R.id.icon1);
         icon2 = (ImageView) findViewById(R.id.icon2);
@@ -112,9 +112,9 @@ public class UserDashboard extends NavigationDrawer implements View.OnClickListe
                 break;
         }
     }
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
+//    @Override
+//    public void onPointerCaptureChanged(boolean hasCapture) {
+//        super.onPointerCaptureChanged(hasCapture);
+//    }
 }
 

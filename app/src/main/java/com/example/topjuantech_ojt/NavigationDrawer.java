@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer extends AppCompatActivity {
@@ -39,6 +40,31 @@ public class NavigationDrawer extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.btn_login) {
+                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else {
+                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+
+                }
+            }
+        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.user_btm_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.user_home) {
+                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                } if (id == R.id.user_booking) {
+                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                } if (id == R.id.user_profile) {
                     Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
                     startActivity(intent);
                     return true;
