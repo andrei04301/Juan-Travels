@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_booking" />
 
 
-    <item android:id="@+id/profile"
+    <item android:id="@+id/admin_profile"
         android:title="Profile"
         android:icon="@drawable/ic_user"/>
 </menu>
