@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,7 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserGas extends AppCompatActivity {
+public class UserGas extends NavigationDrawer implements View.OnClickListener {
     private String chosenCity, chosenRegion;
     private TextView txtRegion, txtCity;
     public Spinner spinCity, spinRegion;
@@ -48,7 +49,10 @@ public class UserGas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         search = findViewById(R.id.search);
-        setContentView(R.layout.activity_user_gas);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View v = inflater.inflate(R.layout.activity_user_gas, null, false);
+        drawer.addView(v, 0);
+
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -227,5 +231,10 @@ public class UserGas extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

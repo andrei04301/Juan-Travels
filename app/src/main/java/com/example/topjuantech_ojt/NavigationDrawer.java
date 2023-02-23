@@ -57,19 +57,19 @@ public class NavigationDrawer extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.user_home) {
-                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    Intent intent = new Intent(NavigationDrawer.this, UserDashboard.class);
                     startActivity(intent);
                     return true;
                 }else if (id == R.id.user_booking) {
-                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    Intent intent = new Intent(NavigationDrawer.this, UserHotels.class);
                     startActivity(intent);
                     return true;
                 }else  if (id == R.id.user_profile) {
-                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    Intent intent = new Intent(NavigationDrawer.this, UserAmusement.class);
                     startActivity(intent);
                     return true;
                 } else {
-                    Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
+                    Intent intent = new Intent(NavigationDrawer.this, UserHotels.class);
                     startActivity(intent);
                     return true;
 
