@@ -20,11 +20,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -35,7 +33,6 @@
                 android:text="Add Products"
                 android:textColor="@color/bright_blue"
                 android:textSize="44sp" />
-
             <EditText
                 android:id="@+id/prodName"
                 android:layout_width="match_parent"

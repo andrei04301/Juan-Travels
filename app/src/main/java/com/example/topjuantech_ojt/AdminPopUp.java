@@ -4,7 +4,11 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -27,6 +31,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class AdminPopUp extends AppCompatActivity {
     private EditText prodName, prodPrice, prodDesc;
@@ -72,6 +77,27 @@ public class AdminPopUp extends AppCompatActivity {
 
 
     }
+//    private void findAllCollections() {
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//        // Get a list of all the collection IDs in the root directory
+//        db.listCollections().addOnSuccessListener(new OnSuccessListener<List<CollectionReference>>() {
+//            @Override
+//            public void onSuccess(List<CollectionReference> collections) {
+//                // Iterate over the collections and do something with them, e.g. print their IDs
+//                for (CollectionReference collection : collections) {
+//                    Log.d(TAG, collection.getId());
+//                }
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                // Handle errors here
+//            }
+//        });
+//    }
+
+
 
     private void PerformAuth() {
         RegistrationEstablishment registrationEstablishment = new RegistrationEstablishment();
@@ -90,6 +116,7 @@ public class AdminPopUp extends AppCompatActivity {
             FirebaseUser currentUser = mAuth.getCurrentUser();
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             String uid = currentUser.getUid();
+
             if (uid != null) {
                 HashMap<String, String> userMap = new HashMap<>();
                 FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -60,11 +60,11 @@ public class NavigationDrawer extends AppCompatActivity {
                     Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
                     startActivity(intent);
                     return true;
-                } if (id == R.id.user_booking) {
+                }else if (id == R.id.user_booking) {
                     Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
                     startActivity(intent);
                     return true;
-                } if (id == R.id.user_profile) {
+                }else  if (id == R.id.user_profile) {
                     Intent intent = new Intent(NavigationDrawer.this, MainActivity.class);
                     startActivity(intent);
                     return true;
