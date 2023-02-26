@@ -148,6 +148,23 @@ public class AdminPopUp extends AppCompatActivity {
                                     Log.e(TAG, "Error saving Product data: " + e.getMessage());
                                 }
                             });
+//                    db.collectionGroup("AdminID")
+//                            .get()
+//                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                                @Override
+//                                public void onSuccess(QuerySnapshot querySnapshot) {
+//                                    for (QueryDocumentSnapshot document : querySnapshot) {
+//                                        Log.d(TAG, "Found document with ID: " + document.getId());
+//                                        // Access document data as needed
+//                                    }
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Log.w(TAG, "Error getting documents.", e);
+//                                }
+//                            });
                 }
             }
 

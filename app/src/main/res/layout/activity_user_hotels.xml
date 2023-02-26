@@ -91,7 +91,7 @@
                 android:layout_height="45dp"
                 android:layout_below="@+id/city_district"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="@drawable/cust_but"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/cust_but"
                 android:text="Proceed"
                 android:textColor="@color/white" />
