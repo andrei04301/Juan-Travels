@@ -30,6 +30,7 @@ public class NavigationDrawer extends AppCompatActivity {
         drawer = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolbar);
         navView = findViewById(R.id.navView);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, 0, 0);
         drawer.addDrawerListener(toggle);

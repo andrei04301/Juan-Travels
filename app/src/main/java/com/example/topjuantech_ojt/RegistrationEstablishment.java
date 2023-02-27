@@ -231,7 +231,6 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         progressDialog.show();
                         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                         HashMap<String, String> userMap = new HashMap<>();
-                        userMap.put("EstablishmentType", type);
                         userMap.put("EstablishmentName", establishment);
                         userMap.put("Contact", contact);
                         userMap.put("Region", chosenRegion);
@@ -251,23 +250,23 @@ public class RegistrationEstablishment extends AppCompatActivity {
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
                 CollectionReference reference;
-                if (type.toLowerCase().equals("amusement")) {
+                if (type.equals("Amusements")) {
                     reference = firestore.collection(chosenRegion + "Amusements");
-                } else if (type.toLowerCase().equals("attraction")) {
+                } else if (type.equals("Attractions")) {
                     reference = firestore.collection(chosenRegion + "Attractions");
-                } else if (type.toLowerCase().equals("bank")) {
+                } else if (type.equals("Banks")) {
                     reference = firestore.collection(chosenRegion + "Banks");
-                } else if (type.toLowerCase().equals("beverage")) {
+                } else if (type.equals("Beverages")) {
                     reference = firestore.collection(chosenRegion + "Beverages");
-                } else if (type.toLowerCase().equals("food")) {
+                } else if (type.equals("Food Spots")) {
                     reference = firestore.collection(chosenRegion + "Food Spots");
-                } else if (type.toLowerCase().equals("gas")) {
+                } else if (type.equals("Gas Stations")) {
                     reference = firestore.collection(chosenRegion + "Gas Stations");
-                } else if (type.toLowerCase().equals("government")) {
+                } else if (type.equals("Government")) {
                     reference = firestore.collection(chosenRegion + "Government");
-                } else if (type.toLowerCase().equals("hospital")) {
+                } else if (type.equals("Hospitals")) {
                     reference = firestore.collection(chosenRegion + "Hospitals");
-                } else if (type.toLowerCase().equals("hotel")) {
+                } else if (type.equals("Hotels")) {
                     reference = firestore.collection(chosenRegion + "Hotels");
                 } else {
                     progressDialog.dismiss();
@@ -295,7 +294,6 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         });
             }
         });
-
     }
     public String getChosenRegion() {
         return chosenRegion;
@@ -304,7 +302,6 @@ public class RegistrationEstablishment extends AppCompatActivity {
         return chosenCity;
     }
 }
-
 //                    if (type.toLowerCase() ==  "amusement") {
 //                        CollectionReference reference = firestore.collection("Amusements");
 //                        reference.add(userMap)

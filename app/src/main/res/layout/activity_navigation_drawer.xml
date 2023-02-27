@@ -11,6 +11,8 @@
     android:id="@+id/drawer"
     android:fitsSystemWindows="true"
 
+
+
     >
 
     <RelativeLayout
@@ -35,14 +37,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <androidx.appcompat.widget.Toolbar
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:fitsSystemWindows="true"
             tools:ignore="MissingClass"
-            android:background="@color/powder_blue">
+            >
+<!--            android:background="@color/powder_blue"-->
         </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
@@ -54,5 +59,6 @@
         app:menu="@menu/admin_menu"
         app:headerLayout="@layout/header"
         android:background="@color/powder_blue"
-        app:itemTextColor="@color/black"/>
+        app:itemTextColor="@color/black"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 </androidx.drawerlayout.widget.DrawerLayout>
