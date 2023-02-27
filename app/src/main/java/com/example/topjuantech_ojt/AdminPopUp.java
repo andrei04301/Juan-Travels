@@ -29,9 +29,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AdminPopUp extends AppCompatActivity {
     private EditText prodName, prodPrice, prodDesc;
@@ -107,68 +110,73 @@ public class AdminPopUp extends AppCompatActivity {
         price = prodPrice.getText().toString();
         desc = prodDesc.getText().toString();
 
-        if(name.isEmpty()){
+        if (name.isEmpty()) {
             prodName.setError("Please input the Product's Name!");
-        }else if(price.isEmpty()){
+        } else if (price.isEmpty()) {
             prodPrice.setError("Please input the Product's Price!");
-        }else{
+        } else {
             FirebaseAuth mAuth = FirebaseAuth.getInstance();
             FirebaseUser currentUser = mAuth.getCurrentUser();
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             String uid = currentUser.getUid();
-
             if (uid != null) {
-                HashMap<String, String> userMap = new HashMap<>();
+                String[] collections = {"Region I - Ilocos RegionFood Spots", "Region II - Cagayan ValleyFood Spots", "Region III - Central LuzonFood Spots"};
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                CollectionReference establishment = firestore.collection("Region I - Ilocos Region" + "Food Spots");
-                if(firestore.collection("Region I - Ilocos Region" + "Food Spots").whereEqualTo("AdminID", uid) != null){
-                    progressDialog.setMessage("Please wait...");
-                    progressDialog.setTitle("Adding Menu...");
-                    progressDialog.setCanceledOnTouchOutside(false);
-                    progressDialog.show();
-                    userMap.put("Product Name", name);
-                    userMap.put("Product Price", price);
-                    userMap.put("Product Description", desc);
-                    userMap.put("AdminID", uid);
-                    userMap.put("AdminID", uid);
-                    establishment.add(userMap)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+// Use a loop to create a collection group query for each collection
+                for (String collectionn : collections) {
+                    db.collectionGroup(collectionn)
+                            .whereEqualTo("AdminID", uid)
+                            .get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                 @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    progressDialog.dismiss();
-                                    Toast.makeText(AdminPopUp.this, "Product data saved successfully", Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Product data saved with ID: " + documentReference.getId());
+                                public void onSuccess(QuerySnapshot querySnapshot) {
+                                    for (QueryDocumentSnapshot document : querySnapshot) {
+                                        Log.d(TAG, "Found document with ID: " + document.getId());
+                                        // Access document data as needed
+                                        Map<String, Object> data = document.getData();
+                                        Object region = data.get("Region");
+                                        Object establishmentType = data.get("EstablishmentType");
+                                        if (region != null && establishmentType != null) {
+                                            progressDialog.setMessage("Please wait...");
+                                            progressDialog.setTitle("Adding Menu...");
+                                            progressDialog.setCanceledOnTouchOutside(false);
+                                            progressDialog.show();
+                                            HashMap<String, String> userMap = new HashMap<>();
+                                            userMap.put("Product Name", name);
+                                            userMap.put("Product Price", price);
+                                            userMap.put("Product Description", desc);
+                                            userMap.put("AdminID", uid);
+                                            CollectionReference chosenType = firestore.collection(region.toString() + establishmentType.toString());
+                                            chosenType.add(userMap)
+                                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                        @Override
+                                                        public void onSuccess(DocumentReference documentReference) {
+                                                            Toast.makeText(AdminPopUp.this, "Product data saved successfully", Toast.LENGTH_SHORT).show();
+                                                            progressDialog.dismiss();
+                                                            // Do something after adding the document
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Log.w(TAG, "Error adding document: ", e);
+                                                            Toast.makeText(getApplicationContext(), "Error adding document", Toast.LENGTH_SHORT).show();
+                                                            progressDialog.dismiss();
+                                                        }
+                                                    });
+                                        }
+                                    }
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    progressDialog.dismiss();
-                                    Toast.makeText(AdminPopUp.this, "Error saving Product data", Toast.LENGTH_SHORT).show();
-                                    Log.e(TAG, "Error saving Product data: " + e.getMessage());
+                                    Log.w(TAG, "Error getting documents: ", e);
+                                    Toast.makeText(getApplicationContext(), "Error retrieving documents", Toast.LENGTH_SHORT).show();
                                 }
                             });
-//                    db.collectionGroup("AdminID")
-//                            .get()
-//                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                                @Override
-//                                public void onSuccess(QuerySnapshot querySnapshot) {
-//                                    for (QueryDocumentSnapshot document : querySnapshot) {
-//                                        Log.d(TAG, "Found document with ID: " + document.getId());
-//                                        // Access document data as needed
-//                                    }
-//                                }
-//                            })
-//                            .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull Exception e) {
-//                                    Log.w(TAG, "Error getting documents.", e);
-//                                }
-//                            });
+                }
                 }
             }
-
         }
     }
-
-}
