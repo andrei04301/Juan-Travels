@@ -40,26 +40,4 @@ public class AdminMenu extends AppCompatActivity {
         Intent popupwindow = new Intent(AdminMenu.this, AdminPopUp.class);
         startActivity(popupwindow);
     }
-//    String[] collections = { "Region I - Ilocos RegionFood Spots", "Region I - Ilocos RegionAttractions" };
-//    // Use a loop to create a collection group query for each collection
-//                    for (String collection : collections) {
-//        db.collectionGroup(collection)
-//                .whereEqualTo("AdminID", uid)
-//                .get()
-//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(QuerySnapshot querySnapshot) {
-//                        for (QueryDocumentSnapshot document : querySnapshot) {
-//                            Log.d(TAG, "Found document with ID: " + document.getId());
-//                            // Access document data as needed
-//                        }
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error getting documents: ", e);
-//                        Toast.makeText(getApplicationContext(), "Error retrieving documents", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
 }
