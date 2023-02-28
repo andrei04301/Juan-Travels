@@ -45,28 +45,30 @@ public class AdminPopUp extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     ProgressDialog progressDialog;
     FirebaseFirestore fStore;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_pop_up);
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        int width = dm.widthPixels;
+//        int height = dm.heightPixels;
+//        getWindow().setLayout((int) (width*.7),(int)(height*.5));
+//        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.gravity= Gravity.CENTER;
+//        params.x=0;
+//        params.y=-20;
+//        getWindow().setAttributes(params);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int) (width*.7),(int)(height*.5));
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.gravity= Gravity.CENTER;
-        params.x=0;
-        params.y=-20;
-        getWindow().setAttributes(params);
-
+        getWindow().setLayout(width, height);
         Button btnAdd = (Button) findViewById(R.id.btnAdd);
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         fStore = FirebaseFirestore.getInstance();
-
         prodName = (EditText) findViewById(R.id.prodName);
         prodPrice = (EditText) findViewById(R.id.prodPrice);
         prodDesc = (EditText) findViewById(R.id.prodDesc);
@@ -77,8 +79,6 @@ public class AdminPopUp extends AppCompatActivity {
                 PerformAuth();
             }
         });
-
-
     }
 //    private void findAllCollections() {
 //        FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -99,9 +99,6 @@ public class AdminPopUp extends AppCompatActivity {
 //            }
 //        });
 //    }
-
-
-
     private void PerformAuth() {
         RegistrationEstablishment registrationEstablishment = new RegistrationEstablishment();
         String chosenRegion = registrationEstablishment.getChosenRegion();
@@ -142,9 +139,9 @@ public class AdminPopUp extends AppCompatActivity {
                                             progressDialog.setCanceledOnTouchOutside(false);
                                             progressDialog.show();
                                             HashMap<String, String> userMap = new HashMap<>();
-                                            userMap.put("Product Name", name);
-                                            userMap.put("Product Price", price);
-                                            userMap.put("Product Description", desc);
+                                            userMap.put("ProductName", name);
+                                            userMap.put("ProductPrice", price);
+                                            userMap.put("ProductDescription", desc);
                                             userMap.put("AdminID", uid);
                                             CollectionReference chosenType = firestore.collection(region.toString() + establishmentType.toString());
                                             chosenType.add(userMap)
@@ -164,6 +161,8 @@ public class AdminPopUp extends AppCompatActivity {
                                                             progressDialog.dismiss();
                                                         }
                                                     });
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), "Error retrieving Establishment type and its address.", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -172,11 +171,13 @@ public class AdminPopUp extends AppCompatActivity {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Log.w(TAG, "Error getting documents: ", e);
-                                    Toast.makeText(getApplicationContext(), "Error retrieving documents", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Error retrieving documents, please register your establishment first", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
-                }
+                }else{
+                Toast.makeText(getApplicationContext(), "Login Expired, please log again.", Toast.LENGTH_SHORT).show();
+            }
             }
         }
     }
