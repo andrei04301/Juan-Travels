@@ -62,10 +62,10 @@ public class AdminMenu extends AppCompatActivity {
         admin = new Admin();
 
         addMenu = findViewById(R.id.addMenu);
+        PerformAuth();
         addMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PerformAuth();
                 openPopUpWindow();
             }
         });
@@ -74,6 +74,7 @@ public class AdminMenu extends AppCompatActivity {
         Intent popupwindow = new Intent(AdminMenu.this, AdminPopUp.class);
         startActivity(popupwindow);
     }
+
 
     private void PerformAuth() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
