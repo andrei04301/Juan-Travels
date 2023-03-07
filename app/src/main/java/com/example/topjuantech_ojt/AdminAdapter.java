@@ -24,10 +24,10 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyViewHolder
 
     @NonNull
     @Override
-    public AdminAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View v = LayoutInflater.from(context).inflate(R.layout.admin_menu,parent,false);
 
-        return new AdminAdapter.MyViewHolder(v);
+        return new MyViewHolder(v);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyViewHolder
         return userArrayList.size();
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        User model;
+        Admin model;
         TextView ProductName, ProductPrice, Id, Spot;
 
         public MyViewHolder(@NonNull View itemView){

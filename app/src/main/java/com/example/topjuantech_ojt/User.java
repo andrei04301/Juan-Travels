@@ -3,15 +3,15 @@ package com.example.topjuantech_ojt;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String EstablishmentName , City, Id, Spot;
+    String EstablishmentName , City, AdminID, EstablishmentType;
 
     public User(){}
 
-    public User(String establishmentName, String city, String id, String spot) {
+    public User(String establishmentName, String city, String id, String establishmentType) {
         EstablishmentName = establishmentName;
         City = city;
-        Id = id;
-        Spot = spot;
+        AdminID = id;
+        EstablishmentType = establishmentType;
     }
 
     public String getEstablishmentName() {
@@ -30,19 +30,19 @@ public class User implements Serializable {
         City = city;
     }
 
-    public String getId() {
-        return Id;
+    public String getAdminID() {
+        return AdminID;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setAdminID(String adminID) {
+        AdminID = adminID;
     }
 
-    public String getSpot() {
-        return Spot;
+    public String getEstablishmentType() {
+        return EstablishmentType;
     }
 
-    public void setSpot(String spot) {
-        Spot = spot;
+    public void setEstablishmentType(String spot) {
+        EstablishmentType = EstablishmentType;
     }
 }

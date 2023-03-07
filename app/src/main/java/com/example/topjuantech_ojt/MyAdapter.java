@@ -43,33 +43,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         User user=userArrayList.get(position);
         holder.Name.setText(user.getEstablishmentName());
         holder.Address.setText(user.getCity());
-        holder.Id.setText(user.Id);
-        holder.Spot.setText(user.Spot);
+        holder.AdminID.setText(user.getAdminID());
+        holder.EstablishmentType.setText(user.getEstablishmentType());
 
     }
-
     @Override
     public int getItemCount(){
         return userArrayList.size();
     }
-
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         User model;
-        TextView Name, Address, Id, Spot;
-
+        TextView Name, Address, AdminID, EstablishmentType;
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
             Name=itemView.findViewById(R.id.estName);
             Address=itemView.findViewById(R.id.estAddress);
-            Id=itemView.findViewById(R.id.estId);
-            Spot=itemView.findViewById(R.id.estSpot);
+            AdminID=itemView.findViewById(R.id.estId);
+            EstablishmentType=itemView.findViewById(R.id.estSpot);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(),
                             UserGovernment.class);
-                    intent.putExtra("ID", Id.getText());
-                    intent.putExtra("SPOT", Spot.getText());
+                    intent.putExtra("AdminID", AdminID.getText());
+                    intent.putExtra("EstablishmentType", EstablishmentType.getText());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     itemView.getContext().startActivity(intent);
                 }
