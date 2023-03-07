@@ -7,10 +7,10 @@ public class User implements Serializable {
 
     public User(){}
 
-    public User(String establishmentName, String city, String id, String establishmentType) {
+    public User(String establishmentName, String city, String adminID, String establishmentType) {
         EstablishmentName = establishmentName;
         City = city;
-        AdminID = id;
+        AdminID = adminID;
         EstablishmentType = establishmentType;
     }
 
