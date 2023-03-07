@@ -249,37 +249,64 @@
 
     <!--Array of Province/City in Region 10-->
     <string-array name="arr_region10_city">
-        <item>Select Your Province/City</item><item>Bukidnon - Malaybalay City</item><item>Bukidnon - Valencia City</item>
-        <item>Camiguin - Mambajao City</item><item>Lanao del Norte - Iligan City</item><item>Lanao del Norte - Tubod City</item>
-        <item>Misamis Occidental - Oroquieta City</item><item>Misamis Occidental - Ozamiz City</item><item>Misamis Occidental - Tangub City</item>
-        <item>Misamis Oriental - Cagayan de Oro City</item><item>Misamis Oriental - El Salvador City</item><item>Misamis Oriental - Gingoog City</item>
+        <item>Select Your Province/City</item>
+        <item>Bukidnon - Malaybalay City</item>
+        <item>Bukidnon - Valencia City</item>
+        <item>Camiguin - Mambajao City</item>
+        <item>Lanao del Norte - Iligan City</item>
+        <item>Lanao del Norte - Tubod City</item>
+        <item>Misamis Occidental - Oroquieta City</item>
+        <item>Misamis Occidental - Ozamiz City</item>
+        <item>Misamis Occidental - Tangub City</item>
+        <item>Misamis Oriental - Cagayan de Oro City</item>
+        <item>Misamis Oriental - El Salvador City</item>
+        <item>Misamis Oriental - Gingoog City</item>
     </string-array>
 
     <!--Array of Province/City in Region 11-->
     <string-array name="arr_region11_city">
-        <item>Select Your Province/City</item><item>Davao del Norte - Panabo City</item><item>Davao del Norte - Samal City</item>
-        <item>Davao del Norte - Tagum City</item><item>Davao del Sur - Davao City</item><item>Davao del Sur - Digos City</item>
+        <item>Select Your Province/City</item>
+        <item>Davao del Norte - Panabo City</item>
+        <item>Davao del Norte - Samal City</item>
+        <item>Davao del Norte - Tagum City</item>
+        <item>Davao del Sur - Davao City</item>
+        <item>Davao del Sur - Digos City</item>
         <item>Davao Oriental - Mati City</item>
     </string-array>
 
     <!--Array of Province/City in Region 12-->
     <string-array name="arr_region12_city">
-        <item>Select Your Province/City</item><item>North Cotabato - Kidapawan City</item><item>General Santos - General Santos City</item>
-        <item>Maguindanao - Cotabato City</item><item>South Cotabato - Koronadal City</item><item>South Cotabato - Tupi City</item>
-        <item>Sultan Kudarat - Tacurong City</item><item>Sarangani - Alabel City</item>
+        <item>Select Your Province/City</item>
+        <item>North Cotabato - Kidapawan City</item>
+        <item>General Santos - General Santos City</item>
+        <item>Maguindanao - Cotabato City</item>
+        <item>South Cotabato - Koronadal City</item>
+        <item>South Cotabato - Tupi City</item>
+        <item>Sultan Kudarat - Tacurong City</item>
+        <item>Sarangani - Alabel City</item>
     </string-array>
 
     <!--Array of Province/City in Region 13-->
     <string-array name="arr_region13_city">
-        <item>Select Your Province/City</item><item>Agusan del Norte - Butuan City</item><item>Agusan del Norte - Cabadbaran City</item>
-        <item>Agusan del Sur - Bayugan City</item><item>Agusan del Sur - Prosperidad City</item><item>Surigao del Norte - Surigao City</item>
-        <item>Surigao del Sur - Bislig City</item><item>Surigao del Sur - Tandag City</item><item>Dinagat Islands - San Jose City</item>
+        <item>Select Your Province/City</item>
+        <item>Agusan del Norte - Butuan City</item>
+        <item>Agusan del Norte - Cabadbaran City</item>
+        <item>Agusan del Sur - Bayugan City</item>
+        <item>Agusan del Sur - Prosperidad City</item>
+        <item>Surigao del Norte - Surigao City</item>
+        <item>Surigao del Sur - Bislig City</item>
+        <item>Surigao del Sur - Tandag City</item>
+        <item>Dinagat Islands - San Jose City</item>
     </string-array>
 
     <!--Array of Province/City in BARRM-->
     <string-array name="arr_BARRM_city">
-        <item>Select Your Province/City</item><item>Basilan - Lamitan City</item><item>Lanao del Sur - Marawi City</item>
-        <item>Maguindanao - Shariff Aguak City</item><item>Sulu - Jolo City</item><item>Tawi-Tawi - Bongao City</item>
+        <item>Select Your Province/City</item>
+        <item>Basilan - Lamitan City</item>
+        <item>Lanao del Sur - Marawi City</item>
+        <item>Maguindanao - Shariff Aguak City</item>
+        <item>Sulu - Jolo City</item>
+        <item>Tawi-Tawi - Bongao City</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

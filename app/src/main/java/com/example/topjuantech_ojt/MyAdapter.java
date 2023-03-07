@@ -64,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(),
-                            UserGovernment.class);
+                            UserEstablishmentMain.class);
                     intent.putExtra("AdminID", AdminID.getText());
                     intent.putExtra("EstablishmentType", EstablishmentType.getText());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
