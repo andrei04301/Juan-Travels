@@ -41,10 +41,10 @@ public class UserEstablishmentMain extends AppCompatActivity implements Activity
         viewPager = findViewById(R.id.view_pager);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-//        InformationAdapter informationAdapter = new InformationAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-//        informationAdapter.addFragment(new InformationFragment(), "Information");
-//        informationAdapter.addFragment(new FeaturedFragment(), "Featured Establishment");
-//        viewPager.setAdapter(informationAdapter);
+        UserInfoAdapter userInfoAdapter = new UserInfoAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        userInfoAdapter.addFragment(new UserInfoFragment(), "Information");
+//        userInfoAdapter.addFragment(new FeaturedFragment(), "Featured Establishment");
+        viewPager.setAdapter(userInfoAdapter);
     }
 
     @Override
