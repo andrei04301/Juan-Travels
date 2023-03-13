@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textView"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:layout_marginRight="16dp"
                     android:background="@drawable/custom_textfield"
                     android:ems="10"
@@ -118,18 +118,22 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
-                <com.hbb20.CountryCodePicker
-                    android:id="@+id/ccp"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/txt_region"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editEmailManager"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="13dp"
-                    tools:ignore="MissingClass" />
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/custom_textfield"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="7.5dp"
+                    android:text="+63"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
 
                 <EditText
@@ -137,9 +141,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/editEmailManager"
-                    android:layout_marginLeft="160dp"
+                    android:layout_marginLeft="73dp"
                     android:layout_marginTop="12dp"
-                    android:layout_marginRight="22dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/custom_textfield"
                     android:drawablePadding="10dp"
@@ -155,7 +159,7 @@
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toTopOf="@+id/editPassword1Manager"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ccp"
+                    app:layout_constraintStart_toEndOf="@id/editEmailManager"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
@@ -215,21 +219,22 @@
                     tools:layout_editor_absoluteY="566dp"
                     android:layout_below="@+id/editPassword2Manager"
                     />
+
                 <TextView
                     android:id="@+id/alreadyHaveAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnContinueManager"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="7dp"
                     android:gravity="center"
                     android:text="Already Have an Account?"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="@+id/btnContinueManager"
                     tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="611dp"
-                    android:layout_below="@+id/btnContinueManager"
-                    />
+                    tools:layout_editor_absoluteY="611dp" />
             </RelativeLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>
