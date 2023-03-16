@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationUser"
+    tools:context=".UserProfile"
     android:background="@color/white">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -169,17 +168,18 @@
         android:hint="Status"
         android:inputType="textPersonName"
         android:textSize="16sp" />
-    </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!-- viewpager to show images -->
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerMain"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/user_btm_navigation"

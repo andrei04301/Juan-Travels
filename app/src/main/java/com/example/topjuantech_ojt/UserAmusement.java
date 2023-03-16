@@ -42,7 +42,6 @@ public class UserAmusement extends NavigationDrawer implements View.OnClickListe
     List<String> ids;
     FirebaseFirestore db;
     User user;
-
     EditText search;
 
     @Override

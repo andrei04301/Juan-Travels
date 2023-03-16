@@ -45,7 +45,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.Address.setText(user.getCity());
         holder.AdminID.setText(user.getAdminID());
         holder.EstablishmentType.setText(user.getEstablishmentType());
-
     }
     @Override
     public int getItemCount(){
@@ -60,6 +59,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Address=itemView.findViewById(R.id.estAddress);
             AdminID=itemView.findViewById(R.id.estId);
             EstablishmentType=itemView.findViewById(R.id.estSpot);
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

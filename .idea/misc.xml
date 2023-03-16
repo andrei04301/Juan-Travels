@@ -3,16 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/view_bg.xml" value="0.232" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/drawable/wave.xml" value="0.232" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_menu.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_navigation.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_admin_pop_up.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_establishment_fragments.xml" value="0.35520833333333335" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_login.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_establishment.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_manager.xml" value="0.25" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_user.xml" value="0.25" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_slider_item.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_dashboard.xml" value="0.21" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_establishment_main.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_hotels.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_profile.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/header.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/est_featured_fragment.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/est_information_fragment.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/fragment_establishment_info.xml" value="0.35520833333333335" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/fragment_establishment_maps.xml" value="0.35520833333333335" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/header.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/user_information_fragment.xml" value="0.2203125" />
+        <entry key="..\:/Users/Andre/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/user_product_fragment.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/drawable-v24/cust_but.xml" value="0.323" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/drawable-v24/custom_textfield.xml" value="0.1935" />
         <entry key="..\:/Users/Andre/AndroidStudioProjects/OJT_GalguerraReynancia/app/src/main/res/layout/activity_forgot_password.xml" value="0.18541666666666667" />
@@ -117,7 +130,7 @@
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_maps.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_establishment.xml" value="0.16" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_manager.xml" value="0.22" />
+        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_manager.xml" value="0.16" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_registration_user.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_reset_password.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_sign_in_number.xml" value="0.209375" />
@@ -128,9 +141,8 @@
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_attraction.xml" value="0.22" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_banks.xml" value="0.209375" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_beverages.xml" value="0.1" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_desired_city.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_establishment_main.xml" value="0.75" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_foodspot.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_gas.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/itsga/AndroidStudioProjects/Juan-Travels/app/src/main/res/layout/activity_user_government.xml" value="0.16394927536231885" />
