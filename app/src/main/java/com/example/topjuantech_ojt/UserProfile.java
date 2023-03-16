@@ -63,7 +63,6 @@ public class UserProfile extends AppCompatActivity {
                     lastname.setEnabled(true);
                     email.setEnabled(true);
                     phoneNumber.setEnabled(true);
-                    status.setEnabled(true);
 
                     // Change the button text to "Save"
                     edit.setText("Save");
@@ -76,7 +75,6 @@ public class UserProfile extends AppCompatActivity {
                     lastname.setEnabled(false);
                     email.setEnabled(false);
                     phoneNumber.setEnabled(false);
-                    status.setEnabled(false);
 
                     // Change the button text back to "Edit"
                     edit.setText("Edit");
@@ -134,7 +132,6 @@ public class UserProfile extends AppCompatActivity {
             profileData.put("Last Name", lastname.getText().toString());
             profileData.put("Phone", phoneNumber.getText().toString());
             profileData.put("Email", email.getText().toString());
-            profileData.put("isUser", status.getText().toString());
 
             DocumentReference userRef = mFirestore.collection("Users").document(uid);
             userRef.set(profileData, SetOptions.merge())
