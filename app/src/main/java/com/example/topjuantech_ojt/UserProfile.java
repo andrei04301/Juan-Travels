@@ -31,7 +31,8 @@ public class UserProfile extends AppCompatActivity {
     private EditText firstname, lastname, phoneNumber,
             email, status;
     private TextView userName;
-    private Button save;
+    private Button  edit;
+    private boolean isEditable = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +49,46 @@ public class UserProfile extends AppCompatActivity {
         phoneNumber = findViewById(R.id.phoneNumber);
         status = findViewById(R.id.status);
         userName = findViewById(R.id.userEmail);
-        save = findViewById(R.id.save);
+
+        edit = findViewById(R.id.edit);
 
 
-        // Load the user's profile data
         loadProfileData();
-        save.setOnClickListener(new View.OnClickListener() {
+        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveProfileData();
-                Toast.makeText(getApplicationContext(), "Profile data updated successfully", Toast.LENGTH_SHORT).show();
+                if (!isEditable) {
+                    // Make the EditText fields editable
+                    firstname.setEnabled(true);
+                    lastname.setEnabled(true);
+                    email.setEnabled(true);
+                    phoneNumber.setEnabled(true);
+                    status.setEnabled(true);
+
+                    // Change the button text to "Save"
+                    edit.setText("Save");
+
+                    // Set isEditable to true
+                    isEditable = true;
+                } else {
+                    // Make the EditText fields non-editable
+                    firstname.setEnabled(false);
+                    lastname.setEnabled(false);
+                    email.setEnabled(false);
+                    phoneNumber.setEnabled(false);
+                    status.setEnabled(false);
+
+                    // Change the button text back to "Edit"
+                    edit.setText("Edit");
+
+                    // Save the updated profile data
+                    saveProfileData();
+
+                    // Set isEditable to false
+                    isEditable = false;
+                }
             }
         });
-//        save.setOnClickListener(v -> saveProfileData(),
-//                Toast.makeText(getApplicationContext(), "Document does not exist", Toast.LENGTH_SHORT).show();
     }
 
     private void loadProfileData() {
