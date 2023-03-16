@@ -1,17 +1,26 @@
 package com.example.topjuantech_ojt;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserProfile extends AppCompatActivity {
 
@@ -22,6 +31,7 @@ public class UserProfile extends AppCompatActivity {
     private EditText firstname, lastname, phoneNumber,
             email, status;
     private TextView userName;
+    private Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +48,20 @@ public class UserProfile extends AppCompatActivity {
         phoneNumber = findViewById(R.id.phoneNumber);
         status = findViewById(R.id.status);
         userName = findViewById(R.id.userEmail);
+        save = findViewById(R.id.save);
 
-        // Load the user's profile data userEmail
+
+        // Load the user's profile data
         loadProfileData();
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveProfileData();
+                Toast.makeText(getApplicationContext(), "Profile data updated successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+//        save.setOnClickListener(v -> saveProfileData(),
+//                Toast.makeText(getApplicationContext(), "Document does not exist", Toast.LENGTH_SHORT).show();
     }
 
     private void loadProfileData() {
@@ -62,7 +83,6 @@ public class UserProfile extends AppCompatActivity {
                                 String Status = documentSnapshot.getString("isUser");
                                 String userEmail = documentSnapshot.getString("Email");
 
-
                                 // Set the profile data in the layout
                                 firstname.setText(firstName);
                                 lastname.setText(lastName);
@@ -70,74 +90,44 @@ public class UserProfile extends AppCompatActivity {
                                 status.setText(Status);
                                 phoneNumber.setText(phoneNumberr);
                                 userName.setText(userEmail);
-
                             }
                         }
                     });
         }
     }
+
+    private void saveProfileData() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+
+            Map<String, Object> profileData = new HashMap<>();
+            profileData.put("First Name", firstname.getText().toString());
+            profileData.put("Last Name", lastname.getText().toString());
+            profileData.put("Phone", phoneNumber.getText().toString());
+            profileData.put("Email", email.getText().toString());
+            profileData.put("isUser", status.getText().toString());
+
+            DocumentReference userRef = mFirestore.collection("Users").document(uid);
+            userRef.set(profileData, SetOptions.merge())
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Profile data saved successfully
+                        }
+                    });
+        }
+    }
+
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        saveProfileData();
+//    }
 }
 
-//
-//import static android.content.ContentValues.TAG;
-//
-//import androidx.annotation.NonNull;
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.app.ProgressDialog;
-//import android.os.Bundle;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//import com.google.android.gms.tasks.OnCompleteListener;
-//import com.google.android.gms.tasks.OnFailureListener;
-//import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.android.gms.tasks.Task;
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.firestore.DocumentReference;
-//import com.google.firebase.firestore.DocumentSnapshot;
-//import com.google.firebase.firestore.FieldPath;
-//import com.google.firebase.firestore.FirebaseFirestore;
-//import com.google.firebase.firestore.QueryDocumentSnapshot;
-//import com.google.firebase.firestore.QuerySnapshot;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Map;
-//
-//public class UserProfile extends NavigationDrawer implements View.OnClickListener {
-//    private EditText firstname, lastname, phoneNumber,
-//            email, status;
-//    FirebaseAuth mAuth;
-//    FirebaseUser mUser;
-//    FirebaseDatabase db = FirebaseDatabase.getInstance();
-//    ProgressDialog progressDialog;
-//    FirebaseFirestore fStore;
-//    ProfileAdapter profileAdapter;
-//    ArrayList<UserDetails> mUserList;
-//    List<String> ids;
-//    UserDetails userDetails;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        LayoutInflater inflater = LayoutInflater.from(this);
-//        View v = inflater.inflate(R.layout.activity_user_profile, null, false);
-//        drawer.addView(v, 0);
-//
-//        fStore = FirebaseFirestore.getInstance();
-//        mUserList = new ArrayList<UserDetails>();
-//        ids = new ArrayList<String>();
-//        profileAdapter = new ProfileAdapter(getApplicationContext(), mUserList);
-//        profileAdapter = new ProfileAdapter(UserProfile.this, mUserList);
-//        userDetails = new UserDetails();
-//        PerformFetching();
-//    }
+
 //    private void PerformFetching() {
 //        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
