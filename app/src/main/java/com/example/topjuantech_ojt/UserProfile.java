@@ -21,6 +21,7 @@ public class UserProfile extends AppCompatActivity {
     private ImageView mProfilePicture;
     private EditText firstname, lastname, phoneNumber,
             email, status;
+    private TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,9 @@ public class UserProfile extends AppCompatActivity {
         email = findViewById(R.id.email);
         phoneNumber = findViewById(R.id.phoneNumber);
         status = findViewById(R.id.status);
+        userName = findViewById(R.id.userEmail);
 
-        // Load the user's profile data
+        // Load the user's profile data userEmail
         loadProfileData();
     }
 
@@ -58,6 +60,8 @@ public class UserProfile extends AppCompatActivity {
                                 String phoneNumberr = documentSnapshot.getString("Phone");
                                 String Email = documentSnapshot.getString("Email");
                                 String Status = documentSnapshot.getString("isUser");
+                                String userEmail = documentSnapshot.getString("Email");
+
 
                                 // Set the profile data in the layout
                                 firstname.setText(firstName);
@@ -65,6 +69,8 @@ public class UserProfile extends AppCompatActivity {
                                 email.setText(Email);
                                 status.setText(Status);
                                 phoneNumber.setText(phoneNumberr);
+                                userName.setText(userEmail);
+
                             }
                         }
                     });
