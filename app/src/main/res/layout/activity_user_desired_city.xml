@@ -52,7 +52,7 @@
                 android:layout_marginStart="96dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="97dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/inter"
                 android:text="What City?"
                 android:textAlignment="center"
                 android:textColor="@color/bright_blue"
