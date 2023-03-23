@@ -97,7 +97,6 @@ public class NavigationDrawer extends AppCompatActivity {
                                 if (userType.equals("Basic")) {
                                     navView.getMenu().clear(); // Remove the other menu
                                     getMenuInflater().inflate(R.menu.menu, menu);
-                                    Toast.makeText(NavigationDrawer.this, "Success", Toast.LENGTH_LONG).show();
                                     navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                                         @Override
                                         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -153,7 +152,7 @@ public class NavigationDrawer extends AppCompatActivity {
                                     });
                                 }
                             } else {
-                                Toast.makeText(NavigationDrawer.this, "Failed1", Toast.LENGTH_LONG).show();
+                                Toast.makeText(NavigationDrawer.this, "Failed", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
