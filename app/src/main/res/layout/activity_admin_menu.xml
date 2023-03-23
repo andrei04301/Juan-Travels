@@ -6,11 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".AdminMenu">
     <TextView
+        android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Products"
-        android:id="@+id/hello"
-        android:textSize="50dp"
+        android:textColor="@color/bright_blue"
+        android:fontFamily="@font/inter"
+        android:textSize="35sp"
+        android:focusable="true"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
