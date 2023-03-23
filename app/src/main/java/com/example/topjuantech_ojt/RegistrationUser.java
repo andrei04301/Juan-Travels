@@ -108,7 +108,6 @@ public class RegistrationUser extends AppCompatActivity {
             progressDialog.setTitle("Registration");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
-
             //registration of user using credentials to be stored in db authentication
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -123,7 +122,7 @@ public class RegistrationUser extends AppCompatActivity {
                         userInfo.put("Last Name",lastNameEditText.getText().toString());
                         userInfo.put("Email",emailEditText.getText().toString());
                         userInfo.put("Phone",phoneEditText.getText().toString());
-                        userInfo.put("isUser", "1");
+                        userInfo.put("isUser", "Basic");
                         df.set(userInfo);
                         sendUserToNextActivity();
                         finish();

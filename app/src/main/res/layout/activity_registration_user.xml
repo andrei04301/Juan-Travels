@@ -160,13 +160,38 @@
                 tools:layout_editor_absoluteX="54dp"
                 tools:layout_editor_absoluteY="363dp" />
 
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/editPassword1"-->
+            <!--                android:layout_width="300dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignStart="txt_cpPh"-->
+            <!--                android:layout_alignEnd="@+id/editCellphone"-->
+            <!--                android:layout_marginStart="0dp"-->
+            <!--                android:layout_marginLeft="35dp"-->
+            <!--                android:layout_marginTop="350dp"-->
+            <!--                android:layout_marginEnd="0dp"-->
+            <!--                android:background="@drawable/custom_textfield"-->
+            <!--                android:drawablePadding="10dp"-->
+            <!--                android:ems="10"-->
+            <!--                android:hint="Password"-->
+            <!--                android:inputType="textPassword"-->
+            <!--                android:paddingLeft="20dp"-->
+            <!--                android:paddingTop="13dp"-->
+            <!--                android:paddingRight="20dp"-->
+            <!--                android:paddingBottom="13dp"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/black"-->
+            <!--                tools:ignore="MissingConstraints"-->
+            <!--                tools:layout_editor_absoluteX="54dp"-->
+            <!--                tools:layout_editor_absoluteY="422dp" />-->
+
             <EditText
                 android:id="@+id/editPassword1"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="txt_cpPh"
-                android:layout_alignEnd="@+id/editCellphone"
-                android:layout_marginStart="0dp"
+                android:layout_alignStart="@+id/editEmail"
+                android:layout_marginStart="-35dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="350dp"
                 android:layout_marginEnd="0dp"
@@ -181,20 +206,20 @@
                 android:paddingBottom="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="422dp" />
+                app:layout_constraintEnd_toEndOf="@id/editCellphone"
+                app:layout_constraintStart_toStartOf="@id/txt_cpPh"
+                app:layout_constraintTop_toBottomOf="@id/editCellphone" />
 
             <EditText
                 android:id="@+id/editPassword2"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/editPassword1"
                 android:layout_alignEnd="@+id/editPassword1"
-                android:layout_marginStart="0dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="41dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="410dp"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="-40dp"
                 android:background="@drawable/custom_textfield"
                 android:drawablePadding="10dp"
                 android:ems="10"

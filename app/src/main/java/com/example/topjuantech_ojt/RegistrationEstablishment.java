@@ -30,6 +30,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrationEstablishment extends AppCompatActivity {
     private EditText estName, estType, estContact;
@@ -171,9 +172,6 @@ public class RegistrationEstablishment extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-
-
         Button submitButton;
         submitButton = findViewById(R.id.btnRegisterEst);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -240,12 +238,30 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         userMap.put("Latitude", lat);
                         userMap.put("AdminID", uid);
                         storeDataInFirestore(type, userMap);
+                        changeIntoPremium();
 //                        userMap.put("Establishment ID", documentReference.getId());
                     }
 //                    DatabaseReference root = db.getReference().child("Establishments");
                 }
             }
 
+            public void changeIntoPremium(){
+                FirebaseUser user = mAuth.getCurrentUser();
+                DocumentReference df = fStore.collection("Users").document(user.getUid());
+                df.update("isUser", "Premium")
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Update successful
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Update failed
+                            }
+                        });
+            }
             public void storeDataInFirestore(String type, HashMap<String, String> userMap) {
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
