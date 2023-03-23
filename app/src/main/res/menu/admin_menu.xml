@@ -4,9 +4,15 @@
         android:checkableBehavior="single">
         <item
             android:paddingTop="10dp"
-            android:title="Establishment Registration"
-            android:id="@+id/estReg"
+            android:title="Dashboard"
+            android:id="@+id/navDash"
             />
+        <item
+            android:title="User Profile"
+            android:id="@+id/navProfile"/>
+        <item
+            android:title="Establishment Registration"
+            android:id="@+id/navEstReg"/>
         <item
             android:title="Establishment Menu"
             android:id="@+id/estMenu"/>

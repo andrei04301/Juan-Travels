@@ -4,15 +4,15 @@
         android:checkableBehavior="single">
         <item
             android:paddingTop="10dp"
-            android:title="Sample 1"
-            android:id="@+id/btn_login"
+            android:title="Dashboard"
+            android:id="@+id/navDash"
             />
         <item
-            android:title="Sample 2"
-            android:id="@+id/btnSignup"/>
+            android:title="User Profile"
+            android:id="@+id/navProfile"/>
         <item
-            android:title="Sample 3"
-            android:id="@+id/btnReset"/>
+            android:title="Establishment Registration"
+            android:id="@+id/navEstReg"/>
     </group>
 
 </menu>

@@ -34,7 +34,7 @@ public class AdminNavigation extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.estReg) {
+                if (id == R.id.navEstReg) {
                     Intent intent = new Intent(AdminNavigation.this, RegistrationEstablishment.class);
                     startActivity(intent);
                     return true;
