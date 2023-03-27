@@ -236,15 +236,13 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         userMap.put("Barangay", barangay);
                         userMap.put("Longitude", longi);
                         userMap.put("Latitude", lat);
+                        userMap.put("Establishment", "Establishment");
                         userMap.put("AdminID", uid);
                         storeDataInFirestore(type, userMap);
                         changeIntoPremium();
-//                        userMap.put("Establishment ID", documentReference.getId());
                     }
-//                    DatabaseReference root = db.getReference().child("Establishments");
                 }
             }
-
             public void changeIntoPremium(){
                 FirebaseUser user = mAuth.getCurrentUser();
                 DocumentReference df = fStore.collection("Users").document(user.getUid());

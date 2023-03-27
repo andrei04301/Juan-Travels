@@ -192,7 +192,6 @@ public class UserFoodspot extends NavigationDrawer implements View.OnClickListen
                     cardView.setVisibility(v.INVISIBLE);
                     lLayout.setVisibility(v.VISIBLE);
                     db.collection(chosenRegion+"Food Spots").whereEqualTo("City", chosenCity).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {

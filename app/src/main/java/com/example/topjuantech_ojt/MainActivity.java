@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         //methods to find id
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_signupUser = (Button) findViewById(R.id.btn_signupUser);
-        btn_signupManager = (Button) findViewById(R.id.btn_signupManager);
+//        btn_signupManager = (Button) findViewById(R.id.btn_signupManager);
 
         //Animations
         RelativeLayout relativeLayout = findViewById(R.id.mainAct);
@@ -55,21 +55,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_signupManager.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
-                    Intent intent = new Intent(MainActivity.this, RegistrationManager.class);
-                    startActivity(intent);
-                }
-                else if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
-                    Intent intent = new Intent(MainActivity.this, RegistrationManager.class);
-                    startActivity(intent);
-                }
-                return true;
-            }
-        });
+//        btn_signupManager.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//
+//                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
+//                    Intent intent = new Intent(MainActivity.this, RegistrationManager.class);
+//                    startActivity(intent);
+//                }
+//                else if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
+//                    Intent intent = new Intent(MainActivity.this, RegistrationManager.class);
+//                    startActivity(intent);
+//                }
+//                return true;
+//            }
+//        });
         btn_login.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
