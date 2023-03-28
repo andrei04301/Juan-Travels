@@ -17,6 +17,9 @@
             android:name=".Establishments"
             android:exported="false" />
         <activity
+            android:name=".EstablishmentProfile"
+            android:exported="false" />
+        <activity
             android:name=".UserEstablishmentMain"
             android:exported="false" />
         <activity
