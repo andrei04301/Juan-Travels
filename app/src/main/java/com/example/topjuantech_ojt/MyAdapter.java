@@ -45,6 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.Address.setText(user.getCity());
         holder.AdminID.setText(user.getAdminID());
         holder.EstablishmentType.setText(user.getEstablishmentType());
+        holder.model = user; // store the user object in the ViewHolder
     }
     @Override
     public int getItemCount(){

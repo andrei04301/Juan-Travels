@@ -17,29 +17,30 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class RegistrationEstablishment extends AppCompatActivity {
     private EditText estName, estType, estContact;
     private Button btnRegisterEst;
-    public String chosenCity, chosenRegion, barangay, longi, lat;
+    public String chosenCity;
+    public String chosenRegion;
+    public String barangay;
+    public String longi, type, typee;
+    public String lat;
+    public EditText txtEstType;
     private TextView txtRegion, txtCity, txtBarangay, txtLong, txtLat;
     public Spinner spinCity, spinRegion;
     public ArrayAdapter<CharSequence> adapterCity, adapterRegion;
-    private String establishment, type, contact;
+    private String establishment, contact;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -63,6 +64,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
 
         txtBarangay = (EditText) findViewById(R.id.editBarangay);
         txtLong = (EditText) findViewById(R.id.editLocationLong);
+        txtEstType = (EditText) findViewById(R.id.editTypeEst);
         txtLat = (EditText) findViewById(R.id.editLocationLat);
         txtRegion = (TextView) findViewById(R.id.txt_region);
         txtCity = (TextView) findViewById(R.id.txt_district);
@@ -182,6 +184,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                 contact = estContact.getText().toString();
                 barangay = txtBarangay.getText().toString();
                 longi = txtLong.getText().toString();
+                typee = txtEstType.getText().toString();
                 lat = txtLat.getText().toString();
                 if (establishment.isEmpty()) {
                     Toast.makeText(RegistrationEstablishment.this, "Please input your Establishment Name", Toast.LENGTH_LONG).show();
@@ -238,6 +241,7 @@ public class RegistrationEstablishment extends AppCompatActivity {
                         userMap.put("Latitude", lat);
                         userMap.put("Establishment", "Establishment");
                         userMap.put("AdminID", uid);
+                        userMap.put("EstablishmentType", typee);
                         storeDataInFirestore(type, userMap);
                         changeIntoPremium();
                     }

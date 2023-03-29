@@ -143,6 +143,10 @@ public class NavigationDrawer extends AppCompatActivity {
                                                 Intent intent = new Intent(NavigationDrawer.this, AdminMenu.class);
                                                 startActivity(intent);
                                                 return true;
+                                            } else if (id == R.id.est) {
+                                                Intent intent = new Intent(NavigationDrawer.this, Establishments.class);
+                                                startActivity(intent);
+                                                return true;
                                             } else {
                                                 Intent intent = new Intent(NavigationDrawer.this, UserDashboard.class);
                                                 startActivity(intent);

@@ -17,6 +17,9 @@
             android:title="Establishment Menu"
             android:id="@+id/estMenu"/>
         <item
+            android:title="Establishments"
+            android:id="@+id/est"/>
+        <item
             android:title="Admin Settings"
             android:id="@+id/btnReset"/>
     </group>
