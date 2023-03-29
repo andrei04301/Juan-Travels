@@ -54,6 +54,7 @@
 
                     <EditText
                         android:id="@+id/userEmail"
+                        android:enabled="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="User Name"
@@ -67,6 +68,7 @@
 
                     <EditText
                         android:id="@+id/status"
+                        android:enabled="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="User Status"
@@ -111,6 +113,7 @@
 
                             <EditText
                                 android:id="@+id/first_name_input"
+                                android:enabled="false"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -151,6 +154,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Galj"
+                                android:enabled="false"
                                 android:background="@null"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
@@ -162,6 +166,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#D9D9D9"
+                            android:enabled="false"
                             android:layout_margin="10dp">
 
                         </View>
@@ -187,6 +192,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="0905 248 0413"
+                                android:enabled="false"
                                 android:background="@null"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
@@ -223,6 +229,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="gabgalj@hotmail.com"
+                                android:enabled="false"
                                 android:background="@null"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
