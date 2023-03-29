@@ -45,7 +45,7 @@ public class UserProfile extends AppCompatActivity {
 //        mProfilePicture = findViewById(R.id.profile_picture);
         firstname = findViewById(R.id.first_name_input);
         lastname = findViewById(R.id.last_name_input);
-        email = findViewById(R.id.email);
+//        email = findViewById(R.id.email);
         phoneNumber = findViewById(R.id.phoneNumber);
         status = findViewById(R.id.status);
         userName = findViewById(R.id.userEmail);
