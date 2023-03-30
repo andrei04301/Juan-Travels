@@ -13,9 +13,9 @@
         <item
             android:title="Establishment Registration"
             android:id="@+id/navEstReg"/>
-        <item
-            android:title="Establishment Menu"
-            android:id="@+id/estMenu"/>
+<!--        <item-->
+<!--            android:title="Establishment Menu"-->
+<!--            android:id="@+id/estMenu"/>-->
         <item
             android:title="Establishments"
             android:id="@+id/est"/>

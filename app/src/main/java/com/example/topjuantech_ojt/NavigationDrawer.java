@@ -139,10 +139,10 @@ public class NavigationDrawer extends AppCompatActivity {
                                                 Intent intent = new Intent(NavigationDrawer.this, RegistrationEstablishment.class);
                                                 startActivity(intent);
                                                 return true;
-                                            } else if (id == R.id.estMenu) {
-                                                Intent intent = new Intent(NavigationDrawer.this, AdminMenu.class);
-                                                startActivity(intent);
-                                                return true;
+//                                            } else if (id == R.id.estMenu) {
+//                                                Intent intent = new Intent(NavigationDrawer.this, AdminMenu.class);
+//                                                startActivity(intent);
+//                                                return true;
                                             } else if (id == R.id.est) {
                                                 Intent intent = new Intent(NavigationDrawer.this, Establishments.class);
                                                 startActivity(intent);

@@ -37,7 +37,7 @@ public class Establishments extends NavigationDrawer implements View.OnClickList
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
     RecyclerView recyclerView;
-    MyAdapter myAdapter;
+    EstablishmentAdapter establishmentAdapter;
     ArrayList<User> userArrayList;
     List<String> ids;
     FirebaseFirestore db;
@@ -59,10 +59,10 @@ public class Establishments extends NavigationDrawer implements View.OnClickList
         db = FirebaseFirestore.getInstance();
         userArrayList = new ArrayList<User>();
         ids = new ArrayList<String>();
-        myAdapter = new MyAdapter(getApplicationContext(), userArrayList);
-        myAdapter = new MyAdapter(Establishments.this, userArrayList);
+        establishmentAdapter = new EstablishmentAdapter(getApplicationContext(), userArrayList);
+        establishmentAdapter = new EstablishmentAdapter(Establishments.this, userArrayList);
         user = new User();
-        recyclerView.setAdapter(myAdapter);
+        recyclerView.setAdapter(establishmentAdapter);
         loadingEstablishment();
 
     }
@@ -95,7 +95,7 @@ public class Establishments extends NavigationDrawer implements View.OnClickList
                                             ids.add(documentSnapshot.getId());
                                             userArrayList.add(user);
                                         }
-                                        myAdapter.notifyDataSetChanged();
+                                        establishmentAdapter.notifyDataSetChanged();
                                     } else {
                                         Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
                                     }
