@@ -18,12 +18,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -70,57 +72,51 @@ public class Establishments extends NavigationDrawer implements View.OnClickList
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         String uid = currentUser.getUid();
         if (uid != null) {
-            String[] collections = {"Region I - Ilocos RegionFood Spots", "Region I - Ilocos RegionBanks", "Region III - Central LuzonFood Spots"};
+            String[] collections = {"Region I - Ilocos RegionBanks", "Region III - Central LuzonFood Spots", "Region I - Ilocos RegionFood Spots","Region IVA - CALABARZONGas Stations"};
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            // Use a loop to create a collection group query for each collection
+            List<Task<?>> tasks = new ArrayList<>();
             for (String collectionn : collections) {
-                db.collectionGroup(collectionn)
-                        .whereEqualTo("AdminID", uid)
-                        .get()
-                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                            @Override
-                            public void onSuccess(QuerySnapshot querySnapshot) {
-                                for (QueryDocumentSnapshot document : querySnapshot) {
-                                    Log.d(TAG, "Found document with ID: " + document.getId());
-                                    // Access document data as needed
-                                    Map<String, Object> data = document.getData();
-                                    String region = (String) data.get("Region");
-                                    String establishmentType = (String) data.get("EstablishmentType");
-                                    String Collection = region + establishmentType;
-                                    if (region != null && establishmentType != null) {
-                                        FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                        Log.d(TAG, "Collection: " + Collection);
-                                        Log.d(TAG, "EstType: " + establishmentType);
-                                        CollectionReference collectionRef = db.collection(Collection);
-                                        collectionRef.document(document.getId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                Log.d(TAG, "dbb: " + collectionRef);
-                                                if (task.isSuccessful()) {
-                                                    DocumentSnapshot document = task.getResult();
-                                                    if (document.exists()) {
-                                                        Log.d(TAG, "secon step: " + document.getId());
-                                                        String EstablishmentName = document.getString("EstablishmentName");
-                                                        String City = document.getString("City");
-                                                        user = new User(EstablishmentName, City, document.getId(), region.toString() + establishmentType.toString());
-                                                        if (!ids.contains(document.getId())) {
-                                                            ids.add(document.getId());
-                                                            userArrayList.add(user);
-                                                        }
-                                                        myAdapter.notifyDataSetChanged();
-                                                    } else {
-                                                        Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                } else {
-                                                    Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
+                Query query = db.collection(collectionn).whereEqualTo("AdminID", uid);
+                Task<QuerySnapshot> task = query.get().addOnSuccessListener(querySnapshot -> {
+                    for (QueryDocumentSnapshot document : querySnapshot) {
+                        String region = (String) document.get("Region");
+                        String establishmentType = (String) document.get("EstablishmentType");
+                        String Collection = region + establishmentType;
+                        if (region != null && establishmentType != null) {
+                            CollectionReference collectionRef = db.collection(Collection);
+                            collectionRef.document(document.getId()).get().addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    DocumentSnapshot documentSnapshot = task1.getResult();
+                                    if (documentSnapshot.exists()) {
+                                        String EstablishmentName = documentSnapshot.getString("EstablishmentName");
+                                        String City = documentSnapshot.getString("City");
+                                        User user = new User(EstablishmentName, City, documentSnapshot.getId(), region + establishmentType);
+                                        if (!ids.contains(documentSnapshot.getId())) {
+                                            ids.add(documentSnapshot.getId());
+                                            userArrayList.add(user);
+                                        }
+                                        myAdapter.notifyDataSetChanged();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
                                     }
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Error getting document", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                        });
+                            });
+                        }
+                    }
+                });
+                tasks.add(task);
             }
+            Tasks.whenAllComplete(tasks)
+                    .addOnSuccessListener(aVoid -> {
+                        Log.d(TAG, "All queries completed successfully");
+                        // TODO: Add any post-query logic here
+                    })
+                    .addOnFailureListener(e -> {
+                        Log.e(TAG, "One or more queries failed", e);
+                        // TODO: Handle query failures here
+                    });
         } else {
             Toast.makeText(getApplicationContext(), "Login Expired, please log in again.", Toast.LENGTH_SHORT).show();
         }
