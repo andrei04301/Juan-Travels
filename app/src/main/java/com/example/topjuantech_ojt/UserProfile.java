@@ -23,24 +23,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserProfile extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
-
     private ImageView mProfilePicture;
     private EditText firstname, lastname, phoneNumber,
             email, status, userName;
     private Button  edit;
     private boolean isEditable = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
-
 //        mProfilePicture = findViewById(R.id.profile_picture);
         firstname = findViewById(R.id.first_name_input);
         lastname = findViewById(R.id.last_name_input);
@@ -48,10 +43,7 @@ public class UserProfile extends AppCompatActivity {
         phoneNumber = findViewById(R.id.phoneNumber);
         status = findViewById(R.id.status);
         userName = findViewById(R.id.userEmail);
-
         edit = findViewById(R.id.edit);
-
-
         loadProfileData();
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +54,8 @@ public class UserProfile extends AppCompatActivity {
                     lastname.setEnabled(true);
                     email.setEnabled(true);
                     phoneNumber.setEnabled(true);
-
                     // Change the button text to "Save"
                     edit.setText("Save");
-
                     // Set isEditable to true
                     isEditable = true;
                 } else {
@@ -74,20 +64,16 @@ public class UserProfile extends AppCompatActivity {
                     lastname.setEnabled(false);
                     email.setEnabled(false);
                     phoneNumber.setEnabled(false);
-
                     // Change the button text back to "Edit"
                     edit.setText("Edit");
-
                     // Save the updated profile data
                     saveProfileData();
-
                     // Set isEditable to false
                     isEditable = false;
                 }
             }
         });
     }
-
     private void loadProfileData() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
