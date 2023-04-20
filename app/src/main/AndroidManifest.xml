@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.topjuantech_ojt">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopJuanTech_OJT"
         tools:targetApi="31">
+        <activity
+            android:name=".WalletRegistration"
+            android:exported="false" />
         <activity
             android:name=".Franchise"
             android:exported="false" />
